@@ -10,7 +10,7 @@ function Cart() {
     <div>
       <div className="container mx-auto mt-10">
         <div className="flex shadow-md my-10">
-          <div className="w-3/4 bg-white px-10 py-10">
+          <div className="w-3/4 bg-white px-10 ">
             <div className="flex justify-between border-b pb-8">
               <h1 className="font-semibold text-2xl">Shopping Cart</h1>
               <h2 className="font-semibold text-2xl">{cart.length} items</h2>
@@ -30,14 +30,14 @@ function Cart() {
               </h3>
             </div>
             {cart.map((ele, id) => (
-              <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+              <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5" key={id}>
                 <div className="flex w-2/5">
                   <div className="w-20">
-                    <img className="h-24" src={ele.image} alt="" />
+                    <img className="h-24" src={ele.image} alt="not displayed" />
                   </div>
                   <div className="flex flex-col justify-between ml-4 flex-grow">
                     <span className="font-bold text-sm">{ele.name}</span>
-                    <span className="text-red-500 text-xs">Apple</span>
+                    <span className="text-red-500 text-xs">Shirts</span>
                     <button
                       // href="#"
                       className="font-semibold hover:text-red-500 text-gray-500 text-xs"
@@ -92,7 +92,7 @@ function Cart() {
             </Link>
           </div>
 
-          <div id="summary" className="w-1/4 px-8 py-10">
+          <div id="summary" className="w-1/4 px-8">
             <h1 className="font-semibold text-2xl border-b pb-8">
               Order Summary
             </h1>
