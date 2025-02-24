@@ -55,8 +55,8 @@ const cartReducer = (state = initialState, action: any): Product[] => {
     case DECREMENT_QUANTITY:
       const decData = [...state];
       decData[action.payload].quantity =
-        decData[action.payload].quantity < 1
-          ? 0
+        decData[action.payload].quantity < 2
+          ? 1
           : decData[action.payload].quantity - 1;
       return decData;
 
