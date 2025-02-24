@@ -102,6 +102,14 @@ function Cart() {
               </div>
             ))}
 
+            {cart.length === 0 && (
+              <img
+                src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-2130356-1800917.png"
+                alt=""
+                className="m-auto"
+              />
+            )}
+
             <Link
               href="/"
               className="flex font-semibold text-indigo-600 text-sm  w-44 my-10 "
