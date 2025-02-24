@@ -11,7 +11,7 @@ import { RootState } from "../redux/store";
 function Navbar() {
   const cart = useSelector((state: RootState) => state.cart);
   return (
-    <div className="border-b-[1px] border-b-[#9ca3af55]">
+    <div className="border-b-[1px] border-b-[#9ca3af55] bg-white">
       <div className="flex justify-between items-center px-24 py-3 text-[#9ca3af] font-normal border-b-[1px] border-b-[#9ca3af55]">
         <ul className="flex gap-10">
           <li>About Us</li>
@@ -78,9 +78,11 @@ function Navbar() {
           <Link href="/cart">
             <div className="border-[1px] relative w-10 bg-[#9ca3af24] h-10 flex justify-center items-center rounded-full">
               <AiOutlineShoppingCart size={25} color="#00000099" />
-              <div className="bg-blue-800 absolute rounded-full flex items-center justify-center -top-2 w-5 h-5 -right-1 text-white font-medium">
-                <p>{cart.length}</p>
-              </div>
+              {cart.length > 0 && (
+                <div className="bg-blue-800 absolute rounded-full flex items-center justify-center -top-2 w-5 h-5 -right-1 text-white font-medium">
+                  <p>{cart.length}</p>
+                </div>
+              )}
             </div>
           </Link>
         </div>

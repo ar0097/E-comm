@@ -3,7 +3,11 @@ import Link from "next/link";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
-import { removeFromCart } from "../redux/Productreducer";
+import {
+  decrementQuantity,
+  incrementQuantity,
+  removeFromCart,
+} from "../redux/Productreducer";
 
 function Cart() {
   const cart = useSelector((state: RootState) => state.cart);
@@ -11,6 +15,14 @@ function Cart() {
 
   const removeData = (id: number) => {
     dispatch(removeFromCart(id));
+  };
+
+  const incQuant = (id: number) => {
+    dispatch(incrementQuantity(id));
+  };
+
+  const decQuant = (id: number) => {
+    dispatch(decrementQuantity(id));
   };
   return (
     <div>
@@ -60,6 +72,7 @@ function Cart() {
                   <svg
                     className="fill-current text-gray-600 w-3"
                     viewBox="0 0 448 512"
+                    onClick={() => decQuant(id)}
                   >
                     <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
                   </svg>
@@ -69,12 +82,13 @@ function Cart() {
                     //   type="number"
                     //   value="1"
                   >
-                    1
+                    {ele.quantity}
                   </p>
 
                   <svg
                     className="fill-current text-gray-600 w-3"
                     viewBox="0 0 448 512"
+                    onClick={() => incQuant(id)}
                   >
                     <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
                   </svg>
@@ -83,14 +97,14 @@ function Cart() {
                   ₹{ele.price}
                 </span>
                 <span className="text-center w-1/5 font-semibold text-sm">
-                  ₹{ele.price}
+                  ₹{ele.price * ele.quantity}
                 </span>
               </div>
             ))}
 
             <Link
               href="/"
-              className="flex font-semibold text-indigo-600 text-sm mt-10 pb-10"
+              className="flex font-semibold text-indigo-600 text-sm  w-44 my-10 "
             >
               <svg
                 className="fill-current mr-2 text-indigo-600 w-4"
