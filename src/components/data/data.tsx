@@ -6,6 +6,7 @@ export const product = [
     price: 750,
     save: 20,
     reviews: 30,
+    quantity: 1,
   },
   {
     image:
@@ -14,6 +15,7 @@ export const product = [
     price: 650,
     save: 26,
     reviews: 18,
+    quantity: 1,
   },
   {
     image:
@@ -22,6 +24,7 @@ export const product = [
     price: 599,
     save: 40,
     reviews: 30,
+    quantity: 1,
   },
   {
     image:
@@ -30,6 +33,7 @@ export const product = [
     price: 399,
     save: 30,
     reviews: 37,
+    quantity: 1,
   },
   {
     image:
@@ -38,6 +42,7 @@ export const product = [
     price: 699,
     save: 24,
     reviews: 50,
+    quantity: 1,
   },
   {
     image:
@@ -45,6 +50,7 @@ export const product = [
     name: "Mens Long Sleeve Button Down Shirt for Men Collared Casual",
     price: 670,
     save: 38,
+    quantity: 1,
     reviews: 10,
   },
   {
@@ -54,6 +60,7 @@ export const product = [
     price: 460,
     save: 47,
     reviews: 19,
+    quantity: 1,
   },
   {
     image:
@@ -62,6 +69,7 @@ export const product = [
     price: 590,
     save: 52,
     reviews: 67,
+    quantity: 1,
   },
   {
     image:
@@ -69,6 +77,7 @@ export const product = [
     name: "Shirt for Men | Mens Casual Shirt | Men Stylish Shirt | Men",
     price: 999,
     save: 44,
+    quantity: 1,
     reviews: 70,
   },
 
@@ -79,6 +88,7 @@ export const product = [
     price: 599,
     save: 35,
     reviews: 20,
+    quantity: 1,
   },
   {
     image:
@@ -86,6 +96,7 @@ export const product = [
     name: "Men's Military Shirt",
     price: 359,
     save: 27,
+    quantity: 1,
     reviews: 48,
   },
   {
@@ -94,7 +105,8 @@ export const product = [
     name: "Men's Military Shirt",
     price: 579,
     save: 10,
-    reviews: 28
+    quantity: 1,
+    reviews: 28,
   },
   {
     image:
@@ -103,6 +115,7 @@ export const product = [
     price: 450,
     save: 25,
     reviews: 38,
+    quantity: 1,
   },
   {
     image:
@@ -111,6 +124,7 @@ export const product = [
     price: 579,
     save: 17,
     reviews: 15,
+    quantity: 1,
   },
   {
     image:
@@ -119,5 +133,6 @@ export const product = [
     price: 775,
     save: 41,
     reviews: 32,
+    quantity: 1,
   },
 ];

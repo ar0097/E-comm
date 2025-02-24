@@ -1,11 +1,12 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
 import { FaStar, FaStarHalf } from "react-icons/fa";
 import { product } from "../data/data";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../redux/Productreducer";
 import { RootState } from "../redux/store";
+import Quickview from "../Quickview/Quickview";
 
 interface Product {
   image: string;
@@ -13,9 +14,11 @@ interface Product {
   price: number;
   save: number;
   reviews: number;
+  quantity: number;
 }
 
 function Productcard() {
+  const [index, setIndex] = useState<number | null>(null);
   const dispatch = useDispatch();
   const cart = useSelector((state: RootState) => state.cart);
   console.log(cart);
@@ -23,8 +26,12 @@ function Productcard() {
   const addData = (data: Product) => {
     dispatch(addToCart(data));
   };
+
+  const handleIndex = (idx: number) => {
+    setIndex(idx);
+  };
   return (
-    <div>
+    <div className="relative">
       <h1 className="capitalize font-bold text-[40px]  my-5 text-center">
         Our <strong className="text-blue-900">Products</strong>
       </h1>
@@ -80,14 +87,18 @@ function Productcard() {
             <div className="mx-5 flex gap-3 pb-3 pt-2">
               <button
                 onClick={() => addData(ele)}
-                className="w-[80%] ring-blue-500 hover:ring-1 duration-300  bg-gray-600 text-white font-medium text-[20px] rounded-lg py-1"
+                className="w-[50%] ring-blue-500 hover:ring-1 duration-300  bg-gray-300  font-medium  rounded-lg py-1"
               >
                 Add to cart
               </button>
-              <button className="w-[25%] bg-gray-300 ring-blue-500 hover:ring-1 duration-300 flex justify-center rounded-lg items-center">
-                <AiFillHeart size={25} color="#778899" />
+              <button
+                className="w-[50%] bg-gray-300 ring-blue-500 hover:ring-1 duration-300 font-medium  rounded-lg"
+                onClick={() => handleIndex(id)}
+              >
+                Quick View
               </button>
             </div>
+            {index === id && <Quickview index={index} setIndex={setIndex} />}
           </div>
         ))}
       </div>

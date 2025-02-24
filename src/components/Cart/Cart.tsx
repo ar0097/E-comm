@@ -1,16 +1,22 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
+import { removeFromCart } from "../redux/Productreducer";
 
 function Cart() {
   const cart = useSelector((state: RootState) => state.cart);
+  const dispatch = useDispatch();
+
+  const removeData = (id: number) => {
+    dispatch(removeFromCart(id));
+  };
   return (
     <div>
       <div className="container mx-auto mt-10">
-        <div className="flex shadow-md my-10">
-          <div className="w-3/4 bg-white px-10 ">
+        <div className="flex">
+          <div className="w-3/4 bg-white px-10">
             <div className="flex justify-between border-b pb-8">
               <h1 className="font-semibold text-2xl">Shopping Cart</h1>
               <h2 className="font-semibold text-2xl">{cart.length} items</h2>
@@ -30,7 +36,10 @@ function Cart() {
               </h3>
             </div>
             {cart.map((ele, id) => (
-              <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5" key={id}>
+              <div
+                className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5"
+                key={id}
+              >
                 <div className="flex w-2/5">
                   <div className="w-20">
                     <img className="h-24" src={ele.image} alt="not displayed" />
@@ -39,6 +48,7 @@ function Cart() {
                     <span className="font-bold text-sm">{ele.name}</span>
                     <span className="text-red-500 text-xs">Shirts</span>
                     <button
+                      onClick={() => removeData(id)}
                       // href="#"
                       className="font-semibold hover:text-red-500 text-gray-500 text-xs"
                     >
@@ -80,7 +90,7 @@ function Cart() {
 
             <Link
               href="/"
-              className="flex font-semibold text-indigo-600 text-sm mt-10"
+              className="flex font-semibold text-indigo-600 text-sm mt-10 pb-10"
             >
               <svg
                 className="fill-current mr-2 text-indigo-600 w-4"

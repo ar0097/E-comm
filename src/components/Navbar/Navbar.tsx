@@ -1,11 +1,15 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FiHeart } from "react-icons/fi";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { RiAccountCircleLine } from "react-icons/ri";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 function Navbar() {
+  const cart = useSelector((state: RootState) => state.cart);
   return (
     <div className="border-b-[1px] border-b-[#9ca3af55]">
       <div className="flex justify-between items-center px-24 py-3 text-[#9ca3af] font-normal border-b-[1px] border-b-[#9ca3af55]">
@@ -75,7 +79,7 @@ function Navbar() {
             <div className="border-[1px] relative w-10 bg-[#9ca3af24] h-10 flex justify-center items-center rounded-full">
               <AiOutlineShoppingCart size={25} color="#00000099" />
               <div className="bg-blue-800 absolute rounded-full flex items-center justify-center -top-2 w-5 h-5 -right-1 text-white font-medium">
-                <p>3</p>
+                <p>{cart.length}</p>
               </div>
             </div>
           </Link>
