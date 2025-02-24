@@ -35,8 +35,8 @@ function Navbar() {
           <Link href="/">
             <div>
               <img
-                src="https://cdn.pixabay.com/photo/2015/09/16/08/54/shop-942399_1280.png"
-                className="w-[150px] h-[100px]"
+                src="https://tse2.mm.bing.net/th?id=OIP.ZxbnQQLkb77m_RHJzuZSoQHaCX&pid=Api&P=0&h=180"
+                className="w-[150px] h-[50px]"
                 alt=""
               />
             </div>
