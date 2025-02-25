@@ -15,13 +15,15 @@ interface Product {
   save: number;
   reviews: number;
   quantity: number;
+  total: number;
+  tax: number;
 }
 
 function Productcard() {
   const [index, setIndex] = useState<number | null>(null);
   const dispatch = useDispatch();
   const cart = useSelector((state: RootState) => state.cart);
-  console.log(cart);
+  // console.log(cart);
 
   const addData = (data: Product) => {
     dispatch(addToCart(data));

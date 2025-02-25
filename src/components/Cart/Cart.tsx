@@ -1,12 +1,14 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import {
   decrementQuantity,
   incrementQuantity,
   removeFromCart,
+  incSubTotal,
+  decSubTotal,
 } from "../redux/Productreducer";
 
 function Cart() {
@@ -19,11 +21,17 @@ function Cart() {
 
   const incQuant = (id: number) => {
     dispatch(incrementQuantity(id));
+    dispatch(incSubTotal(id));
   };
 
   const decQuant = (id: number) => {
     dispatch(decrementQuantity(id));
+    dispatch(decSubTotal(id));
   };
+
+  const newData = cart.reduce((acc, curr) => {
+    return acc + curr.total;
+  }, 0);
   return (
     <div>
       <div className="container mx-auto mt-10">
@@ -129,48 +137,38 @@ function Cart() {
               Order Summary
             </h1>
             <div className="flex justify-between mt-10 mb-5">
-              <span className="font-semibold text-sm uppercase">Items 3</span>
-              <span className="font-semibold text-sm">590$</span>
+              <span className="font-semibold text-sm uppercase">
+                Items {cart.length}
+              </span>
             </div>
-            <div>
-              <label
-                htmlFor="ship"
-                className="font-medium inline-block mb-3 text-sm uppercase"
-              >
-                Shipping
-              </label>
-              <select
-                className="block p-2 text-gray-600 w-full text-sm"
-                id="ship"
-              >
-                <option>Standard shipping - $10.00</option>
-              </select>
+            <div className="flex justify-between mb-2">
+              <span>Subtotal</span>
+              <span>₹{cart.reduce((acc, curr) => acc + curr["total"], 0)}</span>
             </div>
-            <div className="py-10">
-              <label
-                htmlFor="promo"
-                className="font-semibold inline-block mb-3 text-sm uppercase"
-              >
-                Promo Code
-              </label>
-              <input
-                type="text"
-                id="promo"
-                placeholder="Enter your code"
-                className="p-2 text-sm w-full"
-              />
+            <div className="flex justify-between mb-2">
+              <span>Taxes</span>
+              <span className="line-through">₹{}.00</span>
             </div>
-            <button className="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">
-              Apply
-            </button>
+            <div className="flex justify-between mb-2">
+              <span>Shipping</span>
+              <span>₹40</span>
+            </div>
+            <hr className="my-2" />
+            <div className="flex justify-between mb-2">
+              <span className="font-semibold">Total</span>
+              <span className="font-semibold">₹{newData + 40}</span>
+            </div>
+
             <div className="border-t mt-8">
               <div className="flex font-semibold justify-between py-6 text-sm uppercase">
                 <span>Total cost</span>
-                <span>$600</span>
+                <span>₹{newData + 40}</span>
               </div>
-              <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">
-                Checkout
-              </button>
+              <Link href="/checkout">
+                <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">
+                  Checkout
+                </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -7,6 +7,8 @@ export const product = [
     save: 20,
     reviews: 30,
     quantity: 1,
+    total: 750,
+    tax: 20,
   },
   {
     image:
@@ -16,6 +18,8 @@ export const product = [
     save: 26,
     reviews: 18,
     quantity: 1,
+    total: 650,
+    tax: 18,
   },
   {
     image:
@@ -25,6 +29,8 @@ export const product = [
     save: 40,
     reviews: 30,
     quantity: 1,
+    total: 599,
+    tax: 14,
   },
   {
     image:
@@ -34,6 +40,8 @@ export const product = [
     save: 30,
     reviews: 37,
     quantity: 1,
+    total: 399,
+    tax: 10,
   },
   {
     image:
@@ -43,6 +51,8 @@ export const product = [
     save: 24,
     reviews: 50,
     quantity: 1,
+    total: 699,
+    tax: 20,
   },
   {
     image:
@@ -52,6 +62,8 @@ export const product = [
     save: 38,
     quantity: 1,
     reviews: 10,
+    total: 670,
+    tax: 20,
   },
   {
     image:
@@ -61,6 +73,8 @@ export const product = [
     save: 47,
     reviews: 19,
     quantity: 1,
+    total: 460,
+    tax: 15,
   },
   {
     image:
@@ -70,6 +84,8 @@ export const product = [
     save: 52,
     reviews: 67,
     quantity: 1,
+    total: 590,
+    tax: 17,
   },
   {
     image:
@@ -79,6 +95,8 @@ export const product = [
     save: 44,
     quantity: 1,
     reviews: 70,
+    total: 999,
+    tax: 25,
   },
 
   {
@@ -89,6 +107,8 @@ export const product = [
     save: 35,
     reviews: 20,
     quantity: 1,
+    total: 599,
+    tax: 16,
   },
   {
     image:
@@ -98,6 +118,8 @@ export const product = [
     save: 27,
     quantity: 1,
     reviews: 48,
+    total: 359,
+    tax: 12,
   },
   {
     image:
@@ -107,6 +129,8 @@ export const product = [
     save: 10,
     quantity: 1,
     reviews: 28,
+    total: 579,
+    tax: 15,
   },
   {
     image:
@@ -116,6 +140,8 @@ export const product = [
     save: 25,
     reviews: 38,
     quantity: 1,
+    total: 450,
+    tax: 10,
   },
   {
     image:
@@ -125,6 +151,8 @@ export const product = [
     save: 17,
     reviews: 15,
     quantity: 1,
+    total: 579,
+    tax: 18,
   },
   {
     image:
@@ -134,5 +162,7 @@ export const product = [
     save: 41,
     reviews: 32,
     quantity: 1,
+    total: 775,
+    tax: 23,
   },
 ];

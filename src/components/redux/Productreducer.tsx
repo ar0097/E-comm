@@ -3,6 +3,8 @@ const ADD_TO_CART = "ADD_TO_CART";
 const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 const INCREMENT_QUANTITY = "INCREMENT_QUANTITY";
 const DECREMENT_QUANTITY = "DECREMENT_QUANTITY";
+const INCREMENT_SUBTOTAL = "INCREMENT_SUBTOTAL";
+const DECREMENT_SUBTOTAL = "DECREMENT_SUBTOTAL";
 // Define Product Type (Optional)
 interface Product {
   image: string;
@@ -11,6 +13,7 @@ interface Product {
   save: number;
   reviews: number;
   quantity: number;
+  total: number;
 }
 
 // Action creator
@@ -26,6 +29,16 @@ export const removeFromCart = (id: number) => ({
 
 export const incrementQuantity = (id: number) => ({
   type: INCREMENT_QUANTITY,
+  payload: id,
+});
+
+export const incSubTotal = (id: number) => ({
+  type: INCREMENT_SUBTOTAL,
+  payload: id,
+});
+
+export const decSubTotal = (id: number) => ({
+  type: DECREMENT_SUBTOTAL,
   payload: id,
 });
 
@@ -59,6 +72,28 @@ const cartReducer = (state = initialState, action: any): Product[] => {
           ? 1
           : decData[action.payload].quantity - 1;
       return decData;
+    case INCREMENT_SUBTOTAL:
+      // console.log("action", state[action.payload]);
+      let sum =
+        state[action.payload]["price"] * state[action.payload]["quantity"];
+
+      // console.log("jbccjk", sum);
+      const newData = [...state];
+      newData[action.payload].total = sum;
+      console.log("newData", newData);
+      return newData;
+
+    case DECREMENT_SUBTOTAL:
+      let newSum =
+        state[action.payload].quantity < 2
+          ? state[action.payload].price
+          : state[action.payload]["total"] - state[action.payload]["price"];
+
+      // console.log("jbccjk", sum);
+      const updatedData = [...state];
+      updatedData[action.payload].total = newSum;
+      // console.log("newData", newData);
+      return updatedData;
 
     default:
       return state;
