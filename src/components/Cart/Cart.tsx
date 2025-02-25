@@ -114,7 +114,7 @@ function Cart() {
               <img
                 src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-2130356-1800917.png"
                 alt=""
-                className="m-auto"
+                className="m-auto w-[50%]"
               />
             )}
 
@@ -156,13 +156,15 @@ function Cart() {
             <hr className="my-2" />
             <div className="flex justify-between mb-2">
               <span className="font-semibold">Total</span>
-              <span className="font-semibold">₹{newData + 40}</span>
+              <span className="font-semibold">
+                ₹{newData === 0 ? 0 : newData + 40}
+              </span>
             </div>
 
             <div className="border-t mt-8">
               <div className="flex font-semibold justify-between py-6 text-sm uppercase">
                 <span>Total cost</span>
-                <span>₹{newData + 40}</span>
+                <span>₹{newData === 0 ? 0 : newData + 40}</span>
               </div>
               <Link href="/checkout">
                 <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">
