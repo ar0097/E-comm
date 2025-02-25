@@ -13,6 +13,8 @@ interface Product {
   save: number;
   reviews: number;
   quantity: number;
+  total: number;
+  tax: number;
 }
 
 interface Indexes {

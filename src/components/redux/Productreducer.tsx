@@ -14,6 +14,7 @@ interface Product {
   reviews: number;
   quantity: number;
   total: number;
+  tax: number;
 }
 
 // Action creator
