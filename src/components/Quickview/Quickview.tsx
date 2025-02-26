@@ -29,13 +29,17 @@ function Quickview({ index, setIndex }: Indexes) {
     dispatch(addToCart(data));
   };
   return (
-    <div className="fixed z-50 top-32 left-96 w-[50%] h-[65%] border-2 bg-white">
+    <div className="fixed z-50 top-32 left-96 w-[50%] h-[65%] border-2 bg-white over">
       <div className="relative">
         <button
-          className="absolute top-3 text-[30px] right-10"
+          className="absolute top-3  text-[30px] right-5 text-rose-500"
           onClick={() => setIndex(null)}
         >
-          x
+          <img
+            src="https://tse3.mm.bing.net/th?id=OIP._JoQE39Qo96ip_N95hi_tgHaHa&pid=Api&P=0&h=180"
+            alt=""
+            className="w-8 h-8"
+          />
         </button>
       </div>
       <div className="flex items-center mt-3">
@@ -53,20 +57,21 @@ function Quickview({ index, setIndex }: Indexes) {
           </h1>
           <p className="font-bold text-[20px]">₹{product[index].price}</p>
           <p className="tracking-wider">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore
-            sed ea itaque quidem tempora debitis, consequatur pariatur labore
-            suscipit nihil repudiandae repellat amet reprehenderit, culpa
-            mollitia fuga consequuntur! Ratione, labore.
+            At Our Shop, we bring you a curated selection of{" "}
+            <strong>high-quality products</strong> ranging from{" "}
+            <strong>electronics, fashion, accessories, and more</strong>. Each
+            product is carefully selected to offer the best in design,
+            durability, and functionality.
           </p>
           {/* <p>quantity</p> */}
           <div className="flex gap-5 my-5">
-            <button className="flex justify-center items-center gap-2 border-[1px] rounded-lg border-red-300 hover:border-2 w-32 h-9">
+            <button className="flex justify-center items-center my-5 gap-2 border-[1px] rounded-lg border-red-300 hover:border-2 w-32 h-9">
               <FaRegHeart size={20} color="#000000" />
               <p className="text-[16px] font-normal text-gray-600">Favorites</p>
             </button>
             <button
               onClick={() => addData(product[index])}
-              className="flex justify-center items-center text-[#ffffff]/[0.8] bg-rose-500 rounded-lg gap-2 border-[1px] border-red-300 hover:border-2 w-32 h-9"
+              className="flex justify-center items-center my-5 text-[#ffffff]/[0.8] bg-rose-500 rounded-lg gap-2   hover:border-2 w-32 h-9"
             >
               <AiOutlineShoppingCart size={20} color="#ffffff" />
               <p className="text-[16px] font-normal ">Add to cart</p>

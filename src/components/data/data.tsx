@@ -111,9 +111,8 @@ export const product = [
     tax: 16,
   },
   {
-    image:
-      "https://images.esellerpro.com/2296/I/952/4/surplus_raw_vintage_shirt_brown_amazon_1a1.jpg",
-    name: "Men's Military Shirt",
+    image: "https://m.media-amazon.com/images/I/6196OGkBRrL._SY741_.jpg",
+    name: "Meadows Men and Boys Long Sleeves Fit Denim Shirts",
     price: 359,
     save: 27,
     quantity: 1,
@@ -122,9 +121,8 @@ export const product = [
     tax: 12,
   },
   {
-    image:
-      "https://images.esellerpro.com/2296/I/952/4/surplus_raw_vintage_shirt_brown_amazon_1a1.jpg",
-    name: "Men's Military Shirt",
+    image: "https://m.media-amazon.com/images/I/71QZrdPq34L._SY879_.jpg",
+    name: "JVX Shirt for Men || Denim Shirt for Men",
     price: 579,
     save: 10,
     quantity: 1,
@@ -134,8 +132,8 @@ export const product = [
   },
   {
     image:
-      "https://images.esellerpro.com/2296/I/952/4/surplus_raw_vintage_shirt_brown_amazon_1a1.jpg",
-    name: "Men's Military Shirt",
+      "https://m.media-amazon.com/images/I/71Mpa+K-dQL._AC_UL480_FMwebp_QL65_.jpg",
+    name: "Cotton Relaxed Fit Denim Shirts",
     price: 450,
     save: 25,
     reviews: 38,
@@ -144,9 +142,8 @@ export const product = [
     tax: 10,
   },
   {
-    image:
-      "https://images.esellerpro.com/2296/I/952/4/surplus_raw_vintage_shirt_brown_amazon_1a1.jpg",
-    name: "Men's Military Shirt",
+    image: "https://m.media-amazon.com/images/I/71lGu3CfH8L._SY879_.jpg",
+    name: "Kuons Avenue Men's Denim Casual Shirt | Denim Shirts for Men Full Sleeves",
     price: 579,
     save: 17,
     reviews: 15,
@@ -155,9 +152,8 @@ export const product = [
     tax: 18,
   },
   {
-    image:
-      "https://images.esellerpro.com/2296/I/952/4/surplus_raw_vintage_shirt_brown_amazon_1a1.jpg",
-    name: "Men's Military Shirt",
+    image: "https://m.media-amazon.com/images/I/71VRGne+gVL._SY879_.jpg",
+    name: "Kuons Avenue Men's Denim Casual Shirt | Denim Shirts for Men Full Sleeves",
     price: 775,
     save: 41,
     reviews: 32,
