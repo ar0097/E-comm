@@ -1,15 +1,61 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FiHeart } from "react-icons/fi";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { RiAccountCircleLine } from "react-icons/ri";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+  onAuthStateChanged,
+  User,
+} from "firebase/auth";
+import { auth } from "../../firebase";
+import firebase from "firebase/compat/app";
 
 function Navbar() {
+  const [user, setUser] = useState<User | null>(null);
   const cart = useSelector((state: RootState) => state.cart);
+
+  console.log("user", user?.photoURL);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  const handleSignIn = () => {
+    const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        console.log("Signed in with Google:", user);
+      })
+      .catch((error) => {
+        console.error("Error signing in with Google:", error);
+      });
+  };
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("Signed out successfully");
+      })
+      .catch((error) => {
+        console.error("Error signing out:", error);
+      });
+  };
+
   return (
     <div className="border-b-[1px] border-b-[#9ca3af55] bg-white sticky top-0 z-50">
       <div className="flex justify-between items-center px-24 py-3 text-[#9ca3af] font-normal border-b-[1px] border-b-[#9ca3af55]">
@@ -65,9 +111,30 @@ function Navbar() {
               <p>+001 123 456 789</p>
             </div>
           </div>
-          <div className="border-[1px] w-10 bg-[#9ca3af24] h-10 flex justify-center items-center rounded-full">
-            <RiAccountCircleLine size={30} color="#00000099" />
-          </div>
+          {user ? (
+            <div
+              onClick={handleSignOut}
+              className="border-[1px] w-10 bg-[#9ca3af24] hover:border-2 hover:border-[#424234] h-10 flex justify-center items-center rounded-full"
+            >
+              <img
+                src={user.photoURL as string}
+                alt={
+                  user.displayName
+                    ?.split(" ")
+                    .map((ele) => ele.slice(0, 1))
+                    .join("") as unknown as string
+                }
+                className="rounded-full w-8 h-8"
+              />
+            </div>
+          ) : (
+            <div
+              onClick={handleSignIn}
+              className="border-[1px] w-10 bg-[#9ca3af24] hover:border-2 hover:border-[#424234] h-10 flex justify-center items-center rounded-full"
+            >
+              <RiAccountCircleLine size={30} color="#00000099" />
+            </div>
+          )}
           <div className="border-[1px] relative w-10 bg-[#9ca3af24] h-10 flex justify-center items-center rounded-full">
             <FiHeart size={20} color="#00000099" />
             <span className="bg-blue-800 absolute rounded-full flex items-center px-[5px] -top-2 w-5 h-5 -right-1 text-white font-semibold">
