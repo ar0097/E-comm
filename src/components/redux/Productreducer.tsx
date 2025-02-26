@@ -56,7 +56,15 @@ const initialState: Product[] = [];
 const cartReducer = (state = initialState, action: any): Product[] => {
   switch (action.type) {
     case ADD_TO_CART:
-      return Array.from(new Set([...state, action.payload]));
+      const data = [...state, action.payload];
+      const unique = data.filter(
+        (prod, index, self) =>
+          index === self.findIndex((p) => p.image === prod.image)
+      );
+
+      console.log(unique);
+      return unique;
+    // return Array.from(new Set([...state, action.payload]));
     case REMOVE_FROM_CART:
       return state.filter((_, id) => id !== action.payload);
 
