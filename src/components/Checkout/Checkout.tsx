@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 function Checkout() {
@@ -7,9 +8,17 @@ function Checkout() {
     firstName: "",
     lastName: "",
     email: "",
-    phone: "",
+    phone: null,
+    address: "",
+    city: "",
+    state: "",
+    code: null,
+    cardNumber: null,
+    exp: null,
+    cvv: null,
   });
   const [selectedValue, setSelectedValue] = useState("card");
+  const router = useRouter();
 
   const handleRadioChange = (value: string) => {
     setSelectedValue(value);
@@ -17,6 +26,25 @@ function Checkout() {
 
   const inputsHandler = (e: { target: { name: any; value: any } }) => {
     setName({ [e.target.name]: e.target.value });
+  };
+
+  const submitForm = () => {
+    if (
+      name.firstName === "" &&
+      name.lastName === "" &&
+      name.email === "" &&
+      name.phone === null &&
+      name.state === "" &&
+      name.city === "" &&
+      name.code === null &&
+      name.address === "" &&
+      name.cardNumber === null &&
+      name.exp === null &&
+      name.cvv === null
+    ) {
+      alert("feilds are required");
+    } else router.push("/");
+    console.log("click");
   };
 
   return (
@@ -47,6 +75,7 @@ function Checkout() {
                         placeholder="First name"
                         value={name.firstName}
                         onChange={inputsHandler}
+                        required
                         className="px-4 py-3 bg-white text-gray-800 w-full text-sm border-2 rounded-md focus:border-blue-500 outline-none"
                       />
                     </div>
@@ -97,6 +126,7 @@ function Checkout() {
                       <input
                         type="text"
                         placeholder="Street address"
+                        value={name.address}
                         className="px-4 py-3 bg-white text-gray-800 w-full text-sm border-2 rounded-md focus:border-blue-500 outline-none"
                       />
                     </div>
@@ -104,6 +134,7 @@ function Checkout() {
                       <input
                         type="text"
                         placeholder="City"
+                        value={name.city}
                         className="px-4 py-3 bg-white text-gray-800 w-full text-sm border-2 rounded-md focus:border-blue-500 outline-none"
                       />
                     </div>
@@ -111,6 +142,7 @@ function Checkout() {
                       <input
                         type="text"
                         placeholder="State"
+                        value={name.state}
                         className="px-4 py-3 bg-white text-gray-800 w-full text-sm border-2 rounded-md focus:border-blue-500 outline-none"
                       />
                     </div>
@@ -118,6 +150,7 @@ function Checkout() {
                       <input
                         type="number"
                         placeholder="Zip Code"
+                        value={name.code}
                         className="px-4 py-3 bg-white text-gray-800 w-full text-sm border-2 rounded-md focus:border-blue-500 outline-none"
                       />
                     </div>
@@ -191,6 +224,7 @@ function Checkout() {
                   <div className="col-span-2">
                     <input
                       type="number"
+                      value={name.cardNumber}
                       placeholder="Card number"
                       className="px-4 py-3 bg-white text-gray-800 w-full text-sm border-2 rounded-md focus:border-blue-500 outline-none"
                     />
@@ -199,6 +233,7 @@ function Checkout() {
                     <input
                       type="number"
                       placeholder="EXP."
+                      value={name.exp}
                       className="px-4 py-3 bg-white text-gray-800 w-full text-sm border-2 rounded-md focus:border-blue-500 outline-none"
                     />
                   </div>
@@ -206,6 +241,7 @@ function Checkout() {
                     <input
                       type="number"
                       placeholder="CVV"
+                      value={name.cvv}
                       className="px-4 py-3 bg-white text-gray-800 w-full text-sm border-2 rounded-md focus:border-blue-500 outline-none"
                     />
                   </div>
@@ -223,6 +259,7 @@ function Checkout() {
                 </button>
               </Link>
               <button
+                onClick={submitForm}
                 type="button"
                 className="px-6 py-3 text-sm font-semibold tracking-wide bg-blue-600 text-white rounded-md hover:bg-blue-700"
               >
