@@ -37,7 +37,7 @@ function Cart() {
       <div className="container mx-auto mt-10">
         <div className="flex">
           <div className="w-3/4 bg-white px-10">
-            <div className="flex justify-between border-b pb-8">
+            <div className="flex justify-between border-b pb-8 ">
               <h1 className="font-semibold text-2xl">Shopping Cart</h1>
               <h2 className="font-semibold text-2xl">{cart.length} items</h2>
             </div>
@@ -55,68 +55,73 @@ function Cart() {
                 Total
               </h3>
             </div>
-            {cart.map((ele, id) => (
-              <div
-                className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5"
-                key={id}
-              >
-                <div className="flex w-2/5">
-                  <div className="w-20">
-                    <img className="h-24" src={ele.image} alt="not displayed" />
+            <div className="h-[400px] overflow-y-auto no-scrollbar">
+              {cart.map((ele, id) => (
+                <div
+                  className="flex items-center hover:bg-gray-100  -mx-8 px-6 py-5"
+                  key={id}
+                >
+                  <div className="flex w-2/5">
+                    <div className="w-20 ml-4">
+                      <img
+                        className="h-24"
+                        src={ele.image}
+                        alt="not displayed"
+                      />
+                    </div>
+                    <div className="flex flex-col justify-between ml-4 flex-grow">
+                      <span className="font-bold text-sm">{ele.name}</span>
+                      <span className="text-red-500 text-xs">Shirts</span>
+                      <button
+                        onClick={() => removeData(id)}
+                        // href="#"
+                        className="font-semibold hover:text-red-500 text-gray-500 text-xs"
+                      >
+                        Remove
+                      </button>
+                    </div>
                   </div>
-                  <div className="flex flex-col justify-between ml-4 flex-grow">
-                    <span className="font-bold text-sm">{ele.name}</span>
-                    <span className="text-red-500 text-xs">Shirts</span>
-                    <button
-                      onClick={() => removeData(id)}
-                      // href="#"
-                      className="font-semibold hover:text-red-500 text-gray-500 text-xs"
+                  <div className="flex justify-center w-1/5">
+                    <svg
+                      className="fill-current text-gray-600 w-3"
+                      viewBox="0 0 448 512"
+                      onClick={() => decQuant(id)}
                     >
-                      Remove
-                    </button>
+                      <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                    </svg>
+
+                    <p
+                      className="mx-2 border text-center w-8"
+                      //   type="number"
+                      //   value="1"
+                    >
+                      {ele.quantity}
+                    </p>
+
+                    <svg
+                      className="fill-current text-gray-600 w-3"
+                      viewBox="0 0 448 512"
+                      onClick={() => incQuant(id)}
+                    >
+                      <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                    </svg>
                   </div>
+                  <span className="text-center w-1/5 font-semibold text-sm">
+                    ₹{ele.price}
+                  </span>
+                  <span className="text-center w-1/5 font-semibold text-sm">
+                    ₹{ele.price * ele.quantity}
+                  </span>
                 </div>
-                <div className="flex justify-center w-1/5">
-                  <svg
-                    className="fill-current text-gray-600 w-3"
-                    viewBox="0 0 448 512"
-                    onClick={() => decQuant(id)}
-                  >
-                    <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                  </svg>
-
-                  <p
-                    className="mx-2 border text-center w-8"
-                    //   type="number"
-                    //   value="1"
-                  >
-                    {ele.quantity}
-                  </p>
-
-                  <svg
-                    className="fill-current text-gray-600 w-3"
-                    viewBox="0 0 448 512"
-                    onClick={() => incQuant(id)}
-                  >
-                    <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                  </svg>
-                </div>
-                <span className="text-center w-1/5 font-semibold text-sm">
-                  ₹{ele.price}
-                </span>
-                <span className="text-center w-1/5 font-semibold text-sm">
-                  ₹{ele.price * ele.quantity}
-                </span>
-              </div>
-            ))}
-
-            {cart.length === 0 && (
-              <img
-                src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-2130356-1800917.png"
-                alt=""
-                className="m-auto w-[50%]"
-              />
-            )}
+              ))}
+              {cart.length === 0 && (
+                <img
+                  src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-2130356-1800917.png"
+                  alt=""
+                  className="m-auto w-[50%]"
+                />
+              )}
+            </div>
 
             <Link
               href="/"
@@ -132,7 +137,7 @@ function Cart() {
             </Link>
           </div>
 
-          <div id="summary" className="w-1/4 px-8">
+          <div id="summary" className="w-1/4 px-8 fixed right-0">
             <h1 className="font-semibold text-2xl border-b pb-8">
               Order Summary
             </h1>
