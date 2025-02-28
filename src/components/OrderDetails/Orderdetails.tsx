@@ -41,6 +41,7 @@ function Orderdetails() {
             <tbody>
               {cart.map((ele, id) => (
                 <tr
+                  key={id}
                   className={`h-20 ${
                     id === cart.length ? "" : "border-b-2"
                   } hover:bg-gray-100`}

@@ -55,7 +55,7 @@ function Cart() {
                 Total
               </h3>
             </div>
-            <div className="h-[400px] overflow-y-auto no-scrollbar">
+            <div className="h-[400px] overflow-y-auto no-scrollbar overflow-x-hidden">
               {cart.map((ele, id) => (
                 <div
                   className="flex items-center hover:bg-gray-100  -mx-8 px-6 py-5"

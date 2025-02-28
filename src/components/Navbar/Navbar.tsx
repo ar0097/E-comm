@@ -58,7 +58,7 @@ function Navbar() {
 
   return (
     <div className="border-b-[1px] border-b-[#9ca3af55] bg-white sticky top-0 z-50">
-      <div className="flex justify-between items-center px-24 py-3 text-[#9ca3af] font-normal border-b-[1px] border-b-[#9ca3af55]">
+      {/* <div className="flex justify-between items-center px-24 py-3 text-[#9ca3af] font-normal border-b-[1px] border-b-[#9ca3af55]">
         <ul className="flex gap-10">
           <li>About Us</li>
           <li>Order Tracking</li>
@@ -75,7 +75,7 @@ function Navbar() {
             <MdKeyboardArrowDown />
           </ol>
         </ul>
-      </div>
+      </div> */}
       <div className="flex justify-between items-center px-20 h-16 font-normal">
         <div className="flex gap-20 items-center">
           <Link href="/">
