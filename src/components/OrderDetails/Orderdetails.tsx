@@ -42,7 +42,7 @@ function Orderdetails() {
               {cart.map((ele, id) => (
                 <tr
                   className={`h-20 ${
-                    id === cart.length - 1 ? "" : "border-b-2"
+                    id === cart.length ? "" : "border-b-2"
                   } hover:bg-gray-100`}
                 >
                   <td className="text-center px-5">
