@@ -1,14 +1,21 @@
 "use client";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import Link from "next/link";
+import { deleteOrder } from "../redux/Orderreducer";
 
 function Orderdetails() {
-  const cart = useSelector((state: RootState) => state.cart);
-  const newData = cart.reduce((acc, curr) => {
+  const order = useSelector((state: RootState) => state.order);
+  const dispatch = useDispatch();
+  console.log("order", order);
+  const newData = order.reduce((acc, curr) => {
     return acc + curr.total;
   }, 0);
+
+  const deletDataFromOrder = () => {
+    order.forEach((ele) => dispatch(deleteOrder(ele)));
+  };
   return (
     <div className="w-full flex justify-center items-center h-screen">
       {/*  */}
@@ -39,11 +46,11 @@ function Orderdetails() {
               </tr>
             </thead>
             <tbody>
-              {cart.map((ele, id) => (
+              {order.map((ele, id) => (
                 <tr
                   key={id}
                   className={`h-20 ${
-                    id === cart.length ? "" : "border-b-2"
+                    id === order.length ? "" : "border-b-2"
                   } hover:bg-gray-100`}
                 >
                   <td className="text-center px-5">
@@ -65,6 +72,15 @@ function Orderdetails() {
               ))}
             </tbody>
           </table>
+          {order.length === 0 && (
+            <div className="flex justify-center items-center mt-12">
+              <img
+                src="https://tse3.mm.bing.net/th?id=OIP.PcuQZuTqw5GbmEk1EKJeBQHaHa&pid=Api&P=0&h=180"
+                alt=""
+                className=""
+              />
+            </div> 
+          )}
         </div>
 
         <div className="flex justify-between  px-10 pt-2 items-center">
@@ -72,7 +88,10 @@ function Orderdetails() {
             <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg">
               Track Your Order
             </button>
-            <button className="bg-gray-600 hover:bg-gray-700 text-white px-5 py-2 rounded-lg">
+            <button
+              onClick={deletDataFromOrder}
+              className="bg-gray-600 hover:bg-gray-700 text-white px-5 py-2 rounded-lg"
+            >
               Cancel Order
             </button>
             <Link

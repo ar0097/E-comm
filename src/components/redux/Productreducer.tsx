@@ -15,6 +15,7 @@ interface Product {
   quantity: number;
   total: number;
   tax: number;
+  order: boolean;
 }
 
 // Action creator
@@ -50,7 +51,6 @@ export const decrementQuantity = (id: number) => ({
 
 // Initial state as an empty array of products
 const initialState: Product[] = [];
-// console.log("iniiqgu", initialState);
 
 // Cart Reducer Function
 const cartReducer = (state = initialState, action: any): Product[] => {

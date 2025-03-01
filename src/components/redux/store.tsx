@@ -1,6 +1,7 @@
 import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
 import cartReducer from "./Productreducer";
+import orderReducer from "./Orderreducer";
 
 interface Product {
   image: string;
@@ -12,6 +13,7 @@ interface Product {
 
 const rootReducer = combineReducers({
   cart: cartReducer,
+  order: orderReducer,
 });
 
 function saveToLocalStorage(state: any) {

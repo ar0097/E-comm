@@ -2,6 +2,9 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../redux/store";
+import { addToOrderDetails } from "../redux/Orderreducer";
 
 // Define an interface for the user details
 interface UserDetails {
@@ -34,7 +37,9 @@ const Checkout = () => {
   });
 
   const [selectedPayment, setSelectedPayment] = useState<string>("card");
+  const dispatch = useDispatch();
   const router = useRouter();
+  const cart = useSelector((state: RootState) => state.cart);
 
   // Handle input changes correctly
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,6 +49,12 @@ const Checkout = () => {
   // Handle radio button changes
   const handlePaymentChange = (value: string) => {
     setSelectedPayment(value);
+  };
+
+  const hanldeDataorder = () => {
+    cart.forEach((ele, id) => {
+      dispatch(addToOrderDetails(ele));
+    });
   };
 
   // Handle form submission
@@ -66,6 +77,8 @@ const Checkout = () => {
     }
 
     // Redirect to order details page
+    hanldeDataorder();
+
     router.push("/order-details");
   };
 

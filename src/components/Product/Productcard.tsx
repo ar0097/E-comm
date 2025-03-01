@@ -17,6 +17,7 @@ interface Product {
   quantity: number;
   total: number;
   tax: number;
+  order: boolean;
 }
 
 function Productcard() {

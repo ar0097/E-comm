@@ -9,6 +9,7 @@ export const product = [
     quantity: 1,
     total: 750,
     tax: 20,
+    order: false,
   },
   {
     image:
@@ -20,6 +21,7 @@ export const product = [
     quantity: 1,
     total: 650,
     tax: 18,
+    order: false,
   },
   {
     image:
@@ -30,6 +32,7 @@ export const product = [
     reviews: 30,
     quantity: 1,
     total: 599,
+    order: false,
     tax: 14,
   },
   {
@@ -42,6 +45,7 @@ export const product = [
     quantity: 1,
     total: 399,
     tax: 10,
+    order: false,
   },
   {
     image:
@@ -53,6 +57,7 @@ export const product = [
     quantity: 1,
     total: 699,
     tax: 20,
+    order: false,
   },
   {
     image:
@@ -64,6 +69,7 @@ export const product = [
     reviews: 10,
     total: 670,
     tax: 20,
+    order: false,
   },
   {
     image:
@@ -75,6 +81,7 @@ export const product = [
     quantity: 1,
     total: 460,
     tax: 15,
+    order: false,
   },
   {
     image:
@@ -86,6 +93,7 @@ export const product = [
     quantity: 1,
     total: 590,
     tax: 17,
+    order: false,
   },
   {
     image:
@@ -97,6 +105,7 @@ export const product = [
     reviews: 70,
     total: 999,
     tax: 25,
+    order: false,
   },
 
   {
@@ -109,6 +118,7 @@ export const product = [
     quantity: 1,
     total: 599,
     tax: 16,
+    order: false,
   },
   {
     image: "https://m.media-amazon.com/images/I/6196OGkBRrL._SY741_.jpg",
@@ -119,6 +129,7 @@ export const product = [
     reviews: 48,
     total: 359,
     tax: 12,
+    order: false,
   },
   {
     image: "https://m.media-amazon.com/images/I/71QZrdPq34L._SY879_.jpg",
@@ -129,6 +140,7 @@ export const product = [
     reviews: 28,
     total: 579,
     tax: 15,
+    order: false,
   },
   {
     image:
@@ -140,6 +152,7 @@ export const product = [
     quantity: 1,
     total: 450,
     tax: 10,
+    order: false,
   },
   {
     image: "https://m.media-amazon.com/images/I/71lGu3CfH8L._SY879_.jpg",
@@ -150,6 +163,7 @@ export const product = [
     quantity: 1,
     total: 579,
     tax: 18,
+    order: false,
   },
   {
     image: "https://m.media-amazon.com/images/I/71VRGne+gVL._SY879_.jpg",
@@ -160,5 +174,6 @@ export const product = [
     quantity: 1,
     total: 775,
     tax: 23,
+    order: false,
   },
 ];

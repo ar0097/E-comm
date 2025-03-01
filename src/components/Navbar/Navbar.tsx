@@ -136,10 +136,12 @@ function Navbar() {
             </div>
           )}
           <div className="border-[1px] relative w-10 bg-[#9ca3af24] h-10 flex justify-center items-center rounded-full">
-            <FiHeart size={20} color="#00000099" />
-            <span className="bg-blue-800 absolute rounded-full flex items-center px-[5px] -top-2 w-5 h-5 -right-1 text-white font-semibold">
-              3
-            </span>
+            <img
+              src="https://tse4.mm.bing.net/th?id=OIP.mbE8Os4916FG2PYGtav-ngHaH0&pid=Api&P=0&h=180"
+              alt=""
+              className="w-8 h-8 object-contain rounded-full"
+              title="check order status"
+            />
           </div>
 
           <Link href="/cart">
