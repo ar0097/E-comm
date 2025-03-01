@@ -1,5 +1,6 @@
 const ORDER_DETAILS = "ORDER_DETAILS";
 const DELETE_ORDER = "DELETE_ORDER";
+const INCREMENT_ORDERS_QUANTITY = "INCREMENT_ORDERS_QUANTITY";
 interface Product {
   image: string;
   name: string;
@@ -22,6 +23,11 @@ export const deleteOrder = (product: Product) => ({
   payload: product,
 });
 
+export const incrementOrders = (id: number) => ({
+  type: INCREMENT_ORDERS_QUANTITY,
+  payload: id,
+});
+
 const initialState: Product[] = [];
 
 // console.log("initial", initialState);
@@ -38,6 +44,14 @@ const orderReducer = (state = initialState, action: any) => {
 
     case DELETE_ORDER:
       return [];
+
+    case INCREMENT_ORDERS_QUANTITY:
+      const increData = [...state];
+      increData[action.payload].quantity =
+        increData[action.payload].quantity == increData[action.payload].quantity
+          ? increData[action.payload].quantity
+          : increData[action.payload].quantity + 1;
+      return increData;
     default:
       return state;
   }

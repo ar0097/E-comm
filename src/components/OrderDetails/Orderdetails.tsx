@@ -79,7 +79,7 @@ function Orderdetails() {
                 alt=""
                 className=""
               />
-            </div> 
+            </div>
           )}
         </div>
 
