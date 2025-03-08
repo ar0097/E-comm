@@ -16,6 +16,7 @@ interface Product {
   total: number;
   tax: number;
   order: boolean;
+  type: string;
 }
 
 // Action creator

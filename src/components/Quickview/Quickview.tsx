@@ -16,6 +16,7 @@ interface Product {
   total: number;
   tax: number;
   order: boolean;
+  type: string;
 }
 
 interface Indexes {
@@ -52,7 +53,7 @@ function Quickview({ index, setIndex }: Indexes) {
           />
         </div>
         <div className="w-1/2 space-y-3">
-          <p className="font-semibold text-[20px]">Shirts</p>
+          <p className="font-semibold text-[20px]">{product[index].type}</p>
           <h1 className="font-bold text-[25px]/[30px]">
             {product[index].name}
           </h1>

@@ -71,7 +71,7 @@ function Cart() {
                     </div>
                     <div className="flex flex-col justify-between ml-4 flex-grow">
                       <span className="font-bold text-sm">{ele.name}</span>
-                      <span className="text-red-500 text-xs">Shirts</span>
+                      <span className="text-red-500 text-xs">{ele.type}</span>
                       <button
                         onClick={() => removeData(id)}
                         // href="#"

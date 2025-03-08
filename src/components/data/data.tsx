@@ -10,6 +10,7 @@ export const product = [
     total: 750,
     tax: 20,
     order: false,
+    type: 'Shirts'
   },
   {
     image:
@@ -22,6 +23,7 @@ export const product = [
     total: 650,
     tax: 18,
     order: false,
+    type: 'Shirts'
   },
   {
     image:
@@ -34,6 +36,7 @@ export const product = [
     total: 599,
     order: false,
     tax: 14,
+    type: 'Shirts'
   },
   {
     image:
@@ -46,6 +49,7 @@ export const product = [
     total: 399,
     tax: 10,
     order: false,
+    type: 'Shirts'
   },
   {
     image:
@@ -57,6 +61,7 @@ export const product = [
     quantity: 1,
     total: 699,
     tax: 20,
+    type: 'Shirts',
     order: false,
   },
   {
@@ -70,6 +75,7 @@ export const product = [
     total: 670,
     tax: 20,
     order: false,
+    type: 'Shirts'
   },
   {
     image:
@@ -82,6 +88,7 @@ export const product = [
     total: 460,
     tax: 15,
     order: false,
+    type: 'Shirts'
   },
   {
     image:
@@ -94,6 +101,7 @@ export const product = [
     total: 590,
     tax: 17,
     order: false,
+    type: 'Shirts'
   },
   {
     image:
@@ -106,6 +114,7 @@ export const product = [
     total: 999,
     tax: 25,
     order: false,
+    type: 'Shirts'
   },
 
   {
@@ -119,6 +128,7 @@ export const product = [
     total: 599,
     tax: 16,
     order: false,
+    type: 'Shirts'
   },
   {
     image: "https://m.media-amazon.com/images/I/6196OGkBRrL._SY741_.jpg",
@@ -130,6 +140,7 @@ export const product = [
     total: 359,
     tax: 12,
     order: false,
+    type: 'Shirts'
   },
   {
     image: "https://m.media-amazon.com/images/I/71QZrdPq34L._SY879_.jpg",
@@ -141,6 +152,7 @@ export const product = [
     total: 579,
     tax: 15,
     order: false,
+    type: 'Shirts'
   },
   {
     image:
@@ -153,6 +165,7 @@ export const product = [
     total: 450,
     tax: 10,
     order: false,
+    type: 'Shirts'
   },
   {
     image: "https://m.media-amazon.com/images/I/71lGu3CfH8L._SY879_.jpg",
@@ -164,6 +177,7 @@ export const product = [
     total: 579,
     tax: 18,
     order: false,
+    type: 'Shirts'
   },
   {
     image: "https://m.media-amazon.com/images/I/71VRGne+gVL._SY879_.jpg",
@@ -175,5 +189,6 @@ export const product = [
     total: 775,
     tax: 23,
     order: false,
+    type: 'Shirts'
   },
 ];

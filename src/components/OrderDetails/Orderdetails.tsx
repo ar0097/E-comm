@@ -62,6 +62,7 @@ function Orderdetails() {
                       />
                       <div>
                         <p className="font-medium">{ele.name}</p>
+                        <span className="text-red-500 text-xs">{ele.type}</span>
                       </div>
                     </div>
                   </td>
