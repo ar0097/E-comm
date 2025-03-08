@@ -2,8 +2,6 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { FiHeart } from "react-icons/fi";
-import { MdKeyboardArrowDown } from "react-icons/md";
 import { RiAccountCircleLine } from "react-icons/ri";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
@@ -88,21 +86,25 @@ function Navbar() {
             </div>
           </Link>
           <ul className="flex gap-10 text-[16px]">
-            <li>Home</li>
-            <li>Shop</li>
-            <ol className="flex items-center gap-1">
-              <li>Products</li>
-              <MdKeyboardArrowDown size={20} />
-            </ol>
-            <li>Accessories</li>
-            <li>Contact</li>
+            <Link href="/">
+              <li>Home</li>
+            </Link>
+            <Link href="/todays-deal">
+              <li>Today's Deals</li>
+            </Link>
+            <Link href="accessories">
+              <li>Accessories</li>
+            </Link>
+            <Link href="/contact">
+              <li>Contact</li>
+            </Link>
           </ul>
         </div>
-        <div className="flex items-center gap-10">
+        <div className="flex items-center gap-5">
           <div className="flex items-center gap-3">
-            <div className="border-[1px] w-10 bg-[#9ca3af24] h-10 flex justify-center items-center rounded-full">
+            <div className="w-10  h-10 flex justify-center items-center rounded-full">
               <img
-                src="https://tse3.mm.bing.net/th?id=OIP.bwreUdSSypsDw7rStNUguQHaGT&pid=Api&P=0&h=20"
+                src="https://up.yimg.com/ib/th?id=OIP.xqlfKo7mhxHwkzr-6NSV1AHaH0&pid=Api&rs=1&c=1&qlt=95&w=116&h=122"
                 alt=""
               />
             </div>
@@ -136,12 +138,11 @@ function Navbar() {
             </div>
           )}
           <Link href="/order-details">
-            <div className="border-[1px] relative w-10 bg-[#9ca3af24] h-10 flex justify-center items-center rounded-full">
+            <div className="relative w-40 h-10 flex justify-center items-center">
               <img
-                src="https://tse4.mm.bing.net/th?id=OIP.mbE8Os4916FG2PYGtav-ngHaH0&pid=Api&P=0&h=180"
+                src="https://tse4.mm.bing.net/th?id=OIP.CiQvykaTmHLG57Qn0K1fRgHaCO&pid=Api&P=0&h=180"
                 alt=""
-                className="w-8 h-8 object-contain rounded-full"
-                title="check order status"
+                className="w-full h-full object-contain rounded-3xl"
               />
             </div>
           </Link>

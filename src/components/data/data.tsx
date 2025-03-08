@@ -10,7 +10,7 @@ export const product = [
     total: 750,
     tax: 20,
     order: false,
-    type: 'Shirts'
+    type: "Shirts",
   },
   {
     image:
@@ -23,7 +23,7 @@ export const product = [
     total: 650,
     tax: 18,
     order: false,
-    type: 'Shirts'
+    type: "Shirts",
   },
   {
     image:
@@ -36,7 +36,7 @@ export const product = [
     total: 599,
     order: false,
     tax: 14,
-    type: 'Shirts'
+    type: "Shirts",
   },
   {
     image:
@@ -49,7 +49,7 @@ export const product = [
     total: 399,
     tax: 10,
     order: false,
-    type: 'Shirts'
+    type: "Shirts",
   },
   {
     image:
@@ -61,7 +61,7 @@ export const product = [
     quantity: 1,
     total: 699,
     tax: 20,
-    type: 'Shirts',
+    type: "Shirts",
     order: false,
   },
   {
@@ -75,7 +75,7 @@ export const product = [
     total: 670,
     tax: 20,
     order: false,
-    type: 'Shirts'
+    type: "Shirts",
   },
   {
     image:
@@ -88,7 +88,7 @@ export const product = [
     total: 460,
     tax: 15,
     order: false,
-    type: 'Shirts'
+    type: "Shirts",
   },
   {
     image:
@@ -101,7 +101,7 @@ export const product = [
     total: 590,
     tax: 17,
     order: false,
-    type: 'Shirts'
+    type: "Shirts",
   },
   {
     image:
@@ -114,7 +114,7 @@ export const product = [
     total: 999,
     tax: 25,
     order: false,
-    type: 'Shirts'
+    type: "Shirts",
   },
 
   {
@@ -128,7 +128,7 @@ export const product = [
     total: 599,
     tax: 16,
     order: false,
-    type: 'Shirts'
+    type: "Shirts",
   },
   {
     image: "https://m.media-amazon.com/images/I/6196OGkBRrL._SY741_.jpg",
@@ -140,7 +140,7 @@ export const product = [
     total: 359,
     tax: 12,
     order: false,
-    type: 'Shirts'
+    type: "Shirts",
   },
   {
     image: "https://m.media-amazon.com/images/I/71QZrdPq34L._SY879_.jpg",
@@ -152,7 +152,7 @@ export const product = [
     total: 579,
     tax: 15,
     order: false,
-    type: 'Shirts'
+    type: "Shirts",
   },
   {
     image:
@@ -165,7 +165,7 @@ export const product = [
     total: 450,
     tax: 10,
     order: false,
-    type: 'Shirts'
+    type: "Shirts",
   },
   {
     image: "https://m.media-amazon.com/images/I/71lGu3CfH8L._SY879_.jpg",
@@ -177,7 +177,7 @@ export const product = [
     total: 579,
     tax: 18,
     order: false,
-    type: 'Shirts'
+    type: "Shirts",
   },
   {
     image: "https://m.media-amazon.com/images/I/71VRGne+gVL._SY879_.jpg",
@@ -189,6 +189,67 @@ export const product = [
     total: 775,
     tax: 23,
     order: false,
-    type: 'Shirts'
+    type: "Shirts",
+  },
+  {
+    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    name: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+    price: 699,
+    save: 29,
+    reviews: 36,
+    quantity: 1,
+    total: 775,
+    tax: 23,
+    order: false,
+    type: "men's clothing",
+  },
+  {
+    image:
+      "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+    name: "Mens Casual Premium Slim Fit T-Shirts",
+    price: 599,
+    save: 29,
+    reviews: 36,
+    quantity: 1,
+    total: 775,
+    tax: 23,
+    order: false,
+    type: "Shirts",
+  },
+  {
+    image: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
+    name: "Mens Cotton Jacket",
+    price: 599,
+    save: 29,
+    reviews: 36,
+    quantity: 1,
+    total: 775,
+    tax: 23,
+    order: false,
+    type: "Shirts",
+  },
+  {
+    image: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
+    name: "Mens Casual Slim Fit",
+    price: 599,
+    save: 29,
+    reviews: 36,
+    quantity: 1,
+    total: 775,
+    tax: 23,
+    order: false,
+    type: "Shirts",
+  },
+  {
+    image: "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
+    name: "Silver Dragon Station Chain Bracelet",
+    price: 599,
+    save: 29,
+    reviews: 36,
+    quantity: 1,
+    total: 775,
+    tax: 23,
+    order: false,
+    type: "Shirts",
   },
 ];

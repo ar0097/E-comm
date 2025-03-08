@@ -49,7 +49,7 @@ function Header() {
             </p>
           </div>
         </div>
-        <div className="w-[430px] h-[272px] bg-[#9ca3af25] flex justify-between ml-2">
+        <div className="w-[430px] h-[272px] bg-[#9ca3af25] flex justify-between">
           <img
             src="https://github.com/WebDesignMastery/Monsa_12-05-23/blob/main/assets/header.png?raw=true"
             alt=""
