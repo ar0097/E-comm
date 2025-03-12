@@ -221,6 +221,21 @@ const Checkout = () => {
                   ))}
                 </div>
               )}
+              {selectedPayment === "paypal" && (
+                <div className="grid sm:grid-cols-3 gap-4 mt-4">
+                  {["cardNumber", "exp", "cvv"].map((field) => (
+                    <input
+                      key={field}
+                      type="text"
+                      name={field}
+                      placeholder={field.replace(/([A-Z])/g, " $1")}
+                      value={(formData as any)[field]}
+                      onChange={handleInputChange}
+                      className="px-4 py-3 bg-white text-gray-800 w-full text-sm border-2 rounded-md focus:border-blue-500 outline-none"
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
