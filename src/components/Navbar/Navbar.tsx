@@ -55,7 +55,7 @@ function Navbar() {
   };
 
   return (
-    <div className="border-b-[1px] border-b-[#9ca3af55] bg-white sticky top-0 z-50">
+    <div className="border-b-[1px] border-b-[#9ca3af55] bg-white w-fit md:w-full sticky top-0 z-50">
       {/* <div className="flex justify-between items-center px-24 py-3 text-[#9ca3af] font-normal border-b-[1px] border-b-[#9ca3af55]">
         <ul className="flex gap-10">
           <li>About Us</li>
@@ -77,31 +77,32 @@ function Navbar() {
       <div className="flex justify-between items-center px-20 h-16 font-normal">
         <div className="flex gap-20 items-center">
           <Link href="/">
-            <div>
+            <div className="md:block hidden">
               <img
                 src="https://tse2.mm.bing.net/th?id=OIP.ZxbnQQLkb77m_RHJzuZSoQHaCX&pid=Api&P=0&h=180"
                 className="w-[150px] h-[50px]"
                 alt=""
               />
             </div>
+            <div className="md:hidden w-[70px] md:w-0">E-Comm</div>
           </Link>
-          <ul className="flex gap-10 text-[16px]">
+          <ul className="flex gap-10 items-center text-[16px] md:w-[400px] w-[250px]">
             <Link href="/">
               <li>Home</li>
             </Link>
             <Link href="/todays-deal">
               <li>Today's Deals</li>
             </Link>
-            <Link href="accessories">
+            <Link href="accessories" className="md:block hidden">
               <li>Accessories</li>
             </Link>
-            <Link href="/contact">
+            <Link href="/contact" className="md:block hidden">
               <li>Contact</li>
             </Link>
           </ul>
         </div>
         <div className="flex items-center gap-5">
-          <div className="flex items-center gap-3">
+          <div className="md:flex items-center gap-3 hidden">
             <div className="w-10  h-10 flex justify-center items-center rounded-full">
               <img
                 src="https://up.yimg.com/ib/th?id=OIP.xqlfKo7mhxHwkzr-6NSV1AHaH0&pid=Api&rs=1&c=1&qlt=95&w=116&h=122"
@@ -138,7 +139,7 @@ function Navbar() {
             </div>
           )}
           <Link href="/order-details">
-            <div className="relative w-40 h-10 flex justify-center items-center">
+            <div className="relative w-40 h-10 md:flex hidden justify-center items-center">
               <img
                 src="https://tse4.mm.bing.net/th?id=OIP.CiQvykaTmHLG57Qn0K1fRgHaCO&pid=Api&P=0&h=180"
                 alt=""
