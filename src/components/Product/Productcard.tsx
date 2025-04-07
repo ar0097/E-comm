@@ -27,8 +27,10 @@ function Productcard() {
   const cart = useSelector((state: RootState) => state.cart);
   // console.log(cart);
 
+  console.log("prod", product);
+
   const addData = (data: Product) => {
-    dispatch(addToCart(data));
+    dispatch(addToCart({ ...data }));
   };
 
   const handleIndex = (idx: number) => {

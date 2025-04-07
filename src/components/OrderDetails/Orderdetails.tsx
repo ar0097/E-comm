@@ -16,6 +16,21 @@ function Orderdetails() {
   const deletDataFromOrder = () => {
     order.forEach((ele) => dispatch(deleteOrder(ele)));
   };
+
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "June",
+    "July",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
   return (
     <div className="w-full flex justify-center items-center h-screen">
       {/*  */}
@@ -68,7 +83,11 @@ function Orderdetails() {
                   </td>
                   <td className="text-center">Qty: {ele.quantity}</td>
                   <td className="text-center">₹{ele.price}</td>
-                  <td className="text-right px-10">23th Dec, 2025</td>
+                  {/* <td className="text-right px-10">23th Dec, 2025</td> */}
+                  <td className="text-right px-10">
+                    {new Date().getDate() + 8}th {months[new Date().getMonth()]}
+                    , {new Date().getFullYear()}
+                  </td>
                 </tr>
               ))}
             </tbody>

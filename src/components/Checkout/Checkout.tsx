@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
-import { addToOrderDetails, incrementOrders } from "../redux/Orderreducer";
+import { addToOrderDetails } from "../redux/Orderreducer";
 
 // Define an interface for the user details
 interface UserDetails {
@@ -54,7 +54,7 @@ const Checkout = () => {
   const hanldeDataorder = () => {
     cart.forEach((ele, id) => {
       dispatch(addToOrderDetails(ele));
-      dispatch(incrementOrders(id));
+      // dispatch(incrementOrders(id));
     });
   };
 
