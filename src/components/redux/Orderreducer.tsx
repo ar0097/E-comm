@@ -36,7 +36,7 @@ const initialState: Product[] = [];
 const orderReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case ORDER_DETAILS:
-      const data = [...state, action.payload];
+      const data = [{ ...action.payload }];
       const unique = data.filter(
         (prod, index, self) =>
           index === self.findIndex((p) => p.image === prod.image)
