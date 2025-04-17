@@ -202,8 +202,8 @@ function Navbar() {
               </div>
             )}
             <Link href="/cart">
-              <div className="border-[1px] relative w-10 bg-[#9ca3af24] h-10 flex justify-center items-center rounded-full">
-                <AiOutlineShoppingCart size={25} color="#00000099" />
+              <div className="border-[1px] relative w-8 bg-[#9ca3af24] h-8 flex justify-center items-center rounded-full">
+                <AiOutlineShoppingCart size={20} color="#00000099" />
                 {cart.length > 0 && (
                   <div className="bg-blue-800 absolute rounded-full flex items-center justify-center -top-2 w-5 h-5 -right-1 text-white font-medium">
                     <p>{cart.length}</p>
