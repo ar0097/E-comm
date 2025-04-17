@@ -164,17 +164,17 @@ function Navbar() {
           </div>
         </div>
       </div>
-      <div className="px-5 py-3 border-b-[1px] md:hidden relative">
+      <div className="px-5 py-3 border-b-[1px] md:hidden sticky top-0 z-50 bg-white">
         <div className="flex justify-between items-center">
           <Link href="/">
-            <div className="md:block hidden">
+            <div className="">
               <img
                 src="https://tse2.mm.bing.net/th?id=OIP.ZxbnQQLkb77m_RHJzuZSoQHaCX&pid=Api&P=0&h=180"
-                className="w-[150px] h-[50px]"
+                className="w-[120px] h-[40px] rounded-lg"
                 alt=""
               />
             </div>
-            <div className="md:hidden w-[70px] md:w-0">E-Comm</div>
+            {/* <div className="md:hidden w-[70px] md:w-0">E-Comm</div> */}
           </Link>
           <div className="lg:hidden flex items-center text-[#0eb48d] gap-3">
             {user ? (
