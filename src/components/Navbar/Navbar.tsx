@@ -14,10 +14,12 @@ import {
 } from "firebase/auth";
 import { auth } from "../../firebase";
 import firebase from "firebase/compat/app";
+import { HiMenu, HiX } from "react-icons/hi";
 
 function Navbar() {
   const [user, setUser] = useState<User | null>(null);
   const cart = useSelector((state: RootState) => state.cart);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   console.log("user", user?.photoURL);
 
@@ -55,8 +57,9 @@ function Navbar() {
   };
 
   return (
-    <div className="border-b-[1px] border-b-[#9ca3af55] bg-white w-fit md:w-full sticky top-0 z-50">
-      {/* <div className="flex justify-between items-center px-24 py-3 text-[#9ca3af] font-normal border-b-[1px] border-b-[#9ca3af55]">
+    <>
+      <div className="border-b-[1px] border-b-[#9ca3af55] hidden md:block bg-white w-fit md:w-full sticky top-0 z-50">
+        {/* <div className="flex justify-between items-center px-24 py-3 text-[#9ca3af] font-normal border-b-[1px] border-b-[#9ca3af55]">
         <ul className="flex gap-10">
           <li>About Us</li>
           <li>Order Tracking</li>
@@ -74,8 +77,95 @@ function Navbar() {
           </ol>
         </ul>
       </div> */}
-      <div className="flex justify-between items-center px-20 h-16 font-normal">
-        <div className="flex gap-20 items-center">
+        <div className="flex justify-between items-center px-20 h-16 font-normal">
+          <div className="flex gap-20 items-center">
+            <Link href="/">
+              <div className="md:block hidden">
+                <img
+                  src="https://tse2.mm.bing.net/th?id=OIP.ZxbnQQLkb77m_RHJzuZSoQHaCX&pid=Api&P=0&h=180"
+                  className="w-[150px] h-[50px]"
+                  alt=""
+                />
+              </div>
+              <div className="md:hidden w-[70px] md:w-0">E-Comm</div>
+            </Link>
+            <ul className="flex gap-10 items-center text-[16px] md:w-[400px] w-[250px]">
+              <Link href="/">
+                <li>Home</li>
+              </Link>
+              <Link href="/todays-deal">
+                <li>Today's Deals</li>
+              </Link>
+              <Link href="accessories" className="md:block hidden">
+                <li>Accessories</li>
+              </Link>
+              <Link href="/contact" className="md:block hidden">
+                <li>Contact</li>
+              </Link>
+            </ul>
+          </div>
+          <div className="flex items-center gap-5">
+            <div className="md:flex items-center gap-3 hidden">
+              <div className="w-10  h-10 flex justify-center items-center rounded-full">
+                <img
+                  src="https://up.yimg.com/ib/th?id=OIP.xqlfKo7mhxHwkzr-6NSV1AHaH0&pid=Api&rs=1&c=1&qlt=95&w=116&h=122"
+                  alt=""
+                />
+              </div>
+              <div className=" text-[15px]/[20px] font-medium">
+                <p className="">Need Help?</p>
+                <p>+001 123 456 789</p>
+              </div>
+            </div>
+            {user ? (
+              <div
+                onClick={handleSignOut}
+                className="border-[1px] w-10 bg-[#9ca3af24] hover:border-2 hover:border-[#424234] h-10 flex justify-center items-center rounded-full"
+              >
+                <img
+                  src={user.photoURL as string}
+                  alt={
+                    user.displayName
+                      ?.split(" ")
+                      .map((ele) => ele.slice(0, 1))
+                      .join("") as unknown as string
+                  }
+                  className="rounded-full w-8 h-8"
+                />
+              </div>
+            ) : (
+              <div
+                onClick={handleSignIn}
+                className="border-[1px] w-10 bg-[#9ca3af24] hover:border-2 hover:border-[#424234] h-10 flex justify-center items-center rounded-full"
+              >
+                <RiAccountCircleLine size={30} color="#00000099" />
+              </div>
+            )}
+            <Link href="/order-details">
+              <div className="relative w-40 h-10 md:flex hidden justify-center items-center">
+                <img
+                  src="https://tse4.mm.bing.net/th?id=OIP.CiQvykaTmHLG57Qn0K1fRgHaCO&pid=Api&P=0&h=180"
+                  alt=""
+                  className="w-full h-full object-contain rounded-3xl"
+                />
+              </div>
+            </Link>
+
+            <Link href="/cart">
+              <div className="border-[1px] relative w-10 bg-[#9ca3af24] h-10 flex justify-center items-center rounded-full">
+                <AiOutlineShoppingCart size={25} color="#00000099" />
+                {cart.length > 0 && (
+                  <div className="bg-blue-800 absolute rounded-full flex items-center justify-center -top-2 w-5 h-5 -right-1 text-white font-medium">
+                    <p>{cart.length}</p>
+                  </div>
+                )}
+              </div>
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div className="px-5 py-3 border-b-[1px] md:hidden relative">
+        <div className="flex justify-between items-center">
           <Link href="/">
             <div className="md:block hidden">
               <img
@@ -86,81 +176,69 @@ function Navbar() {
             </div>
             <div className="md:hidden w-[70px] md:w-0">E-Comm</div>
           </Link>
-          <ul className="flex gap-10 items-center text-[16px] md:w-[400px] w-[250px]">
+          <div className="lg:hidden flex items-center text-[#0eb48d] gap-3">
+            {user ? (
+              <div
+                onClick={handleSignOut}
+                className="border-[1px] w-8 bg-[#9ca3af24] hover:border-2 hover:border-[#424234] h-8 flex justify-center items-center rounded-full"
+              >
+                <img
+                  src={user.photoURL as string}
+                  alt={
+                    user.displayName
+                      ?.split(" ")
+                      .map((ele) => ele.slice(0, 1))
+                      .join("") as unknown as string
+                  }
+                  className="rounded-full w-6 h-6"
+                />
+              </div>
+            ) : (
+              <div
+                onClick={handleSignIn}
+                className="border-[1px] w-8 bg-[#9ca3af24] hover:border-2 hover:border-[#424234] h-8 flex justify-center items-center rounded-full"
+              >
+                <RiAccountCircleLine size={25} color="#00000099" />
+              </div>
+            )}
+            <Link href="/cart">
+              <div className="border-[1px] relative w-10 bg-[#9ca3af24] h-10 flex justify-center items-center rounded-full">
+                <AiOutlineShoppingCart size={25} color="#00000099" />
+                {cart.length > 0 && (
+                  <div className="bg-blue-800 absolute rounded-full flex items-center justify-center -top-2 w-5 h-5 -right-1 text-white font-medium">
+                    <p>{cart.length}</p>
+                  </div>
+                )}
+              </div>
+            </Link>
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+              {isMobileMenuOpen ? <HiX size={34} /> : <HiMenu size={34} />}
+            </button>
+          </div>
+        </div>
+      </div>
+      {isMobileMenuOpen && (
+        <div className="border-b-[1px] absolute z-50 bg-white w-full">
+          <ul className="text-[16px]">
             <Link href="/">
-              <li>Home</li>
+              <li className="border-b-[1px] p-2">Home</li>
             </Link>
             <Link href="/todays-deal">
-              <li>Today's Deals</li>
+              <li className="border-b-[1px] p-2">Today's Deals</li>
             </Link>
-            <Link href="accessories" className="md:block hidden">
-              <li>Accessories</li>
+            <Link href="accessories" className="">
+              <li className="border-b-[1px] p-2">Accessories</li>
             </Link>
-            <Link href="/contact" className="md:block hidden">
-              <li>Contact</li>
+            <Link href="/contact" className="">
+              <li className="border-b-[1px] p-2">Contact</li>
+            </Link>
+            <Link href="/order-details">
+              <li className="border-b-[1px] p-2">Track Orders</li>
             </Link>
           </ul>
         </div>
-        <div className="flex items-center gap-5">
-          <div className="md:flex items-center gap-3 hidden">
-            <div className="w-10  h-10 flex justify-center items-center rounded-full">
-              <img
-                src="https://up.yimg.com/ib/th?id=OIP.xqlfKo7mhxHwkzr-6NSV1AHaH0&pid=Api&rs=1&c=1&qlt=95&w=116&h=122"
-                alt=""
-              />
-            </div>
-            <div className=" text-[15px]/[20px] font-medium">
-              <p className="">Need Help?</p>
-              <p>+001 123 456 789</p>
-            </div>
-          </div>
-          {user ? (
-            <div
-              onClick={handleSignOut}
-              className="border-[1px] w-10 bg-[#9ca3af24] hover:border-2 hover:border-[#424234] h-10 flex justify-center items-center rounded-full"
-            >
-              <img
-                src={user.photoURL as string}
-                alt={
-                  user.displayName
-                    ?.split(" ")
-                    .map((ele) => ele.slice(0, 1))
-                    .join("") as unknown as string
-                }
-                className="rounded-full w-8 h-8"
-              />
-            </div>
-          ) : (
-            <div
-              onClick={handleSignIn}
-              className="border-[1px] w-10 bg-[#9ca3af24] hover:border-2 hover:border-[#424234] h-10 flex justify-center items-center rounded-full"
-            >
-              <RiAccountCircleLine size={30} color="#00000099" />
-            </div>
-          )}
-          <Link href="/order-details">
-            <div className="relative w-40 h-10 md:flex hidden justify-center items-center">
-              <img
-                src="https://tse4.mm.bing.net/th?id=OIP.CiQvykaTmHLG57Qn0K1fRgHaCO&pid=Api&P=0&h=180"
-                alt=""
-                className="w-full h-full object-contain rounded-3xl"
-              />
-            </div>
-          </Link>
-
-          <Link href="/cart">
-            <div className="border-[1px] relative w-10 bg-[#9ca3af24] h-10 flex justify-center items-center rounded-full">
-              <AiOutlineShoppingCart size={25} color="#00000099" />
-              {cart.length > 0 && (
-                <div className="bg-blue-800 absolute rounded-full flex items-center justify-center -top-2 w-5 h-5 -right-1 text-white font-medium">
-                  <p>{cart.length}</p>
-                </div>
-              )}
-            </div>
-          </Link>
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }
 
