@@ -71,12 +71,11 @@ function Header() {
           </div>
         </div>
       </div>
-      <div className="md:hidden flex justify-center items-center w-full">
+      {/* <div className="md:hidden flex justify-center items-center w-full">
         <p>Work in progress</p>
-      </div>
+      </div> */}
     </div>
   );
 }
 
 export default Header;
-

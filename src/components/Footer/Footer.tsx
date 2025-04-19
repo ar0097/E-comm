@@ -3,8 +3,8 @@ import React from "react";
 export default function Footer() {
   return (
     <footer className="bg-neutral-100 text-center text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
-      <div className="flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-neutral-500 lg:justify-between">
-        <div className="mr-12 hidden lg:block">
+      <div className="md:flex items-center justify-center border-b-2 border-neutral-200 md:p-6 p-3 dark:border-neutral-500 lg:justify-between">
+        <div className="mb-3">
           <span>Get connected with us on social networks:</span>
         </div>
         {/* <!-- Social network icons container --> */}
@@ -105,14 +105,14 @@ export default function Footer() {
               Shopicart
             </h6>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi
-              laudantium tempora omnis repellat dolore, laboriosam veniam. Alias
-              maxime, nam quis, ab tempora nisi veniam odio laborum omnis eius
-              commodi est!
+              Shopicart is e-commerce website dedicated to selling stylish
+              shirts and t-shirts. We offer a range of trendy and comfortable
+              designs for everyday wear. Quality, affordability, and simplicity
+              are at the heart of everything we sell!
             </p>
           </div>
           {/* <!-- Products section --> */}
-          <div className="">
+          <div className="hidden md:block">
             <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
               Products
             </h6>
@@ -130,7 +130,7 @@ export default function Footer() {
             </p>
           </div>
           {/* <!-- Useful links section --> */}
-          <div className="">
+          <div className="hidden md:block">
             <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
               Useful links
             </h6>
@@ -148,7 +148,7 @@ export default function Footer() {
             </p>
           </div>
           {/* <!-- Contact section --> */}
-          <div>
+          <div className="hidden md:block">
             <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
               Contact
             </h6>
