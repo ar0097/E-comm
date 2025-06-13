@@ -2,7 +2,7 @@ import React from "react";
 
 function Header() {
   return (
-    <div className="bg-[#9ca3af25] h-screen flex justify-center gap-20 items-center">
+    <div className="h-screen flex justify-center gap-20 items-center">
       <div className="w-[800px] flex flex-col  justify-center space-y-5">
         <h1 className="font-bold text-[35px] leading-10 text-[rgba(0,0,0,0.8)]">
           Mega Sale Up To 50% Off For All
