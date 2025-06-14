@@ -41,13 +41,13 @@ function Productcard() {
       <h1 className="capitalize font-bold text-[40px]  my-5 text-center">
         Our <strong className="text-blue-900">Products</strong>
       </h1>
-      <div className="flex justify-around flex-wrap">
+      <div className="flex justify-around flex-wrap  my-10 mx-5">
         {product.map((ele, id) => (
           <div
             className="border-[1px] w-72 border-[#9ca3af55] my-2 rounded-xl"
             key={id}
           >
-            <div className="h-[200px] w-full">
+            <div className="h-[200px] w-full hover:scale-110 duration-500">
               <img
                 src={ele.image}
                 alt=""
@@ -93,7 +93,7 @@ function Productcard() {
             <div className="mx-5 flex gap-3 pb-3 pt-2">
               <button
                 onClick={() => addData(ele)}
-                className="w-[50%] ring-blue-500 hover:ring-1 duration-300  bg-gray-300  font-medium  rounded-lg py-1"
+                className="w-[50%] ring-blue-500 hover:ring-1 duration-300  bg-gray-300  font-medium  rounded-lg py-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
               >
                 Add to cart
               </button>
@@ -107,6 +107,11 @@ function Productcard() {
             {index === id && <Quickview index={index} setIndex={setIndex} />}
           </div>
         ))}
+      </div>
+      <div className="flex justify-center items-center my-10">
+        <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+          View All Products
+        </button>
       </div>
     </div>
   );
