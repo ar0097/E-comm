@@ -5,8 +5,8 @@ import { LuShoppingBag } from "react-icons/lu";
 
 function Header() {
   return (
-    <div className="h-screen flex justify-center gap-20  bg-gradient-to-br from-blue-50 to-indigo-100 py-20 px-4 sm:px-6 lg:px-8">
-      <div className="w-[600px]">
+    <div className="md:h-screen h-fit md:flex justify-center gap-20  bg-gradient-to-br from-blue-50 to-indigo-100 py-10 md:py-20 px-4 sm:px-6 lg:px-8">
+      <div className="md:w-[600px]">
         <div className="flex gap-2">
           {[1, 2, 3, 4, 5].map((_) => (
             <FaStar color="#ffd700 " />
@@ -20,7 +20,7 @@ function Header() {
             Discover Your <br />{" "}
             <span className="text-blue-600">Perfect Style</span>
           </h1>
-          <p className="text-xl text-gray-600 leading-relaxed w-[580px]">
+          <p className="text-xl text-gray-600 leading-relaxed md:w-[580px]">
             Explore our curated collection of premium products designed to
             elevate your lifestyle. From fashion to tech, we have everything you
             need.
@@ -36,7 +36,7 @@ function Header() {
           </button>
         </div>
 
-        <div className="flex flex-wrap gap-8 pt-8 border-t border-gray-200 mt-5">
+        <div className="flex md:flex-wrap gap-8 pt-8 border-t border-gray-200 my-5">
           <div className="text-center">
             <div className="text-2xl font-bold text-gray-900">10K+</div>
             <div className="text-sm text-gray-600">Happy Customers</div>
@@ -56,13 +56,13 @@ function Header() {
         </div>
       </div>
       {/*  */}
-      <div className="shadow-all-sides w-[600px] h-[500px] rounded-lg relative">
+      <div className="shadow-all-sides md:w-[600px] h-[500px] rounded-lg relative">
         <img
           src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
           alt=""
           className="w-[600px] h-[500px] rounded-lg object-cover shadow-lg"
         />
-        <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-4 border">
+        <div className="absolute -bottom-6 md:-left-6 -left-2 bg-white rounded-xl shadow-lg p-4 border">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
               <LuShoppingBag size={25} color="#43A047" />
