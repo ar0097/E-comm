@@ -23,6 +23,7 @@ interface Product {
 
 function Productcard() {
   const [index, setIndex] = useState<number | null>(null);
+  const [prodCount, setProdCount] = useState(10);
   const dispatch = useDispatch();
   const cart = useSelector((state: RootState) => state.cart);
   // console.log(cart);
@@ -42,7 +43,7 @@ function Productcard() {
         Our <strong className="text-blue-900">Products</strong>
       </h1>
       <div className="flex justify-around flex-wrap  my-10 mx-5">
-        {product.map((ele, id) => (
+        {product.slice(0, prodCount).map((ele, id) => (
           <div
             className="border-[1px] w-72 border-[#9ca3af55] my-2 rounded-xl"
             key={id}
@@ -109,7 +110,10 @@ function Productcard() {
         ))}
       </div>
       <div className="flex justify-center items-center my-10">
-        <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+        <button
+          onClick={() => setProdCount(prodCount + 5)}
+          className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+        >
           View All Products
         </button>
       </div>
