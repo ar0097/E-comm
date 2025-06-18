@@ -1,110 +1,98 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { AiFillHeart } from "react-icons/ai";
-import { FaStar, FaStarHalf } from "react-icons/fa";
-import { product } from "../data/data";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../redux/Productreducer";
-import { RootState } from "../redux/store";
-import Quickview from "../Quickview/Quickview";
+import React, { useRef, useState } from "react";
+import { devices, kidsClothingProducts, product } from "../data/data";
+import { FiZap } from "react-icons/fi";
+import { LuClock, LuTag } from "react-icons/lu";
+import { GoTag } from "react-icons/go";
+import { BiChevronLeft, BiChevronRight, BiStar } from "react-icons/bi";
+import { CgShoppingCart } from "react-icons/cg";
+import { FaStar } from "react-icons/fa";
+import Productslider from "../slider/Productslider";
 
 interface Product {
-  image: string;
+  id: number;
   name: string;
   price: number;
-  save: number;
+  originalPrice?: number;
+  image: string;
+  rating: number;
   reviews: number;
-  quantity: number;
-  total: number;
-  tax: number;
-  order: boolean;
-  type: string;
+  discount?: number;
+}
+
+interface ProductSliderProps {
+  title: string;
+  products: Product[];
+  onAddToCart: (product: Product) => void;
 }
 
 function Deals() {
-  const [index, setIndex] = useState<number | null>(null);
-  const dispatch = useDispatch();
-  const cart = useSelector((state: RootState) => state.cart);
-  // console.log(cart);
-
-  const addData = (data: Product) => {
-    dispatch(addToCart(data));
-  };
-
-  const handleIndex = (idx: number) => {
-    setIndex(idx);
-  };
   return (
-    <div className="relative">
-      <h1 className="capitalize font-bold text-[40px]  my-5 text-center">
-        Our <strong className="text-blue-900">Products</strong>
-      </h1>
-      <div className="flex justify-around flex-wrap">
-        {product.map((ele, id) => (
-          <div
-            className="border-[1px] w-72 border-[#9ca3af55] my-2 rounded-xl"
-            key={id}
-          >
-            <div className="h-[200px] w-full">
-              <img
-                src={ele.image}
-                alt=""
-                className="w-full rounded-t-xl h-[200px] object-contain my-5"
-              />
+    <div className="md:h-full h-fit  bg-gradient-to-br from-slate-50 to-blue-50">
+      {/*  */}
+      <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="text-center">
+            <div className="flex items-center justify-center mb-4">
+              <FiZap className="h-8 w-8 mr-2 text-yellow-300" />
+              <h1 className="text-4xl md:text-6xl font-bold">Today's Deals</h1>
             </div>
-            {/* <div className="flex gap-3 mx-5 mt-3 mb-1">
-              <p className="bg-gray-200 py-[1px] px-3 rounded-2xl">Stock ready</p>
-              <p className="bg-gray-200 py-[1px] px-3 rounded-2xl ">
-                official shore
-              </p>
-            </div> */}
-            <h1 className="mx-5 font-semibold text-[25px]">
-              {ele.name.length > 16 ? ele.name.slice(0, 16) + "..." : ele.name}
-            </h1>
-            <div className="mx-5 my-1 space-y-1">
-              <p className="font-semibold text-[18px] tracking-wider">
-                ₹{ele.price}
-              </p>
-              <div className="flex gap-2">
-                <p className="text-gray-400 line-through text-[15px]">
-                  ₹{ele.price + 116}
-                </p>
-                <div className="bg-[#3bd2a0] text-white rounded-2xl py-[1px] font-medium px-3">
-                  save {ele.save}%
-                </div>
+            <p className="text-xl md:text-2xl mb-8 text-red-100">
+              Limited time offers - Save up to 70% on selected items
+            </p>
+
+            <div className="flex items-center justify-center mb-8">
+              <LuClock className="h-6 w-6 mr-2 text-yellow-300" />
+
+              {/* <CgLock className="h-6 w-6 mr-2 text-yellow-300" /> */}
+              <span className="text-lg font-semibold">
+                Deals end at midnight!
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <LuTag className="h-8 w-8 mx-auto mb-2 text-yellow-300" />
+                <h3 className="text-lg font-semibold mb-2">Up to 70% Off</h3>
+                <p className="text-red-100">Electronics & Gadgets</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <FiZap className="h-8 w-8 mx-auto mb-2 text-yellow-300" />
+                <h3 className="text-lg font-semibold mb-2">Flash Sales</h3>
+                <p className="text-red-100">Every 2 Hours</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <LuClock className="h-8 w-8 mx-auto mb-2 text-yellow-300" />
+                <h3 className="text-lg font-semibold mb-2">24 Hours Only</h3>
+                <p className="text-red-100">Don't Miss Out</p>
               </div>
             </div>
-            <div className="flex gap-3 items-center mx-5 my-3">
-              <div className="flex gap-2">
-                {Array.from({ length: 5 }, (_, i) =>
-                  i !== 4 ? (
-                    <FaStar color="#FFD700" key={i} />
-                  ) : (
-                    <FaStarHalf color="#FFD700" key={i} />
-                  )
-                )}
-              </div>
-              <p className="text-[13px] text-gray-700 font-extrabold">
-                {ele.reviews}k reviews
-              </p>
-            </div>
-            <div className="mx-5 flex gap-3 pb-3 pt-2">
-              <button
-                onClick={() => addData(ele)}
-                className="w-[50%] ring-blue-500 hover:ring-1 duration-300  bg-gray-300  font-medium  rounded-lg py-1"
-              >
-                Add to cart
-              </button>
-              <button
-                className="w-[50%] bg-gray-300 ring-blue-500 hover:ring-1 duration-300 font-medium  rounded-lg"
-                onClick={() => handleIndex(id)}
-              >
-                Quick View
-              </button>
-            </div>
-            {index === id && <Quickview index={index} setIndex={setIndex} />}
+
+            <button
+              // size="lg"
+              className="mt-8 bg-yellow-500 px-7 py-3 rounded-lg hover:bg-yellow-600 text-black font-bold"
+            >
+              Shop All Deals
+            </button>
           </div>
-        ))}
+        </div>
+      </div>
+      {/*  */}
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            Featured Deals
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Don't miss out on these incredible offers. Limited quantities
+            available!
+          </p>
+        </div>
+
+        <Productslider data={devices} title="Electronics & Laptops" />
+        <Productslider data={kidsClothingProducts} title="Kids Clothing" />
+        <Productslider data={product} title="Mens Clothing" />
       </div>
     </div>
   );

@@ -94,7 +94,7 @@ function Productcard() {
             <div className="mx-5 flex gap-3 pb-3 pt-2">
               <button
                 onClick={() => addData(ele)}
-                className="w-[50%] ring-blue-500 hover:ring-1 duration-300  bg-gray-300  font-medium  rounded-lg py-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                className="w-[50%]  duration-300  bg-orange-600 hover:bg-orange-700  font-medium  rounded-lg py-1"
               >
                 Add to cart
               </button>

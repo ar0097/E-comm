@@ -63,7 +63,7 @@ const cartReducer = (state = initialState, action: any): Product[] => {
           index === self.findIndex((p) => p.image === prod.image)
       );
 
-      console.log(unique);
+      console.log("uni", unique);
       return unique;
     // return Array.from(new Set([...state, action.payload]));
     case REMOVE_FROM_CART:
