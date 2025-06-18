@@ -29,13 +29,13 @@ function Header() {
         </div>
         <div className="flex flex-col sm:flex-row gap-4 mt-10">
           <a href="#shop-now">
-            <button className="flex items-center justify-center gap-4 whitespace-nowrap text-lg font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-11 rounded-md px-8 bg-blue-600 hover:bg-blue-700 text-white">
+            <button className="flex items-center w-full justify-center gap-4 whitespace-nowrap text-lg font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-11 rounded-md px-8 bg-blue-600 hover:bg-blue-700 text-white">
               shop now
               <IoMdArrowForward size={5} />
             </button>
           </a>
           <Link href="/todays-deal">
-            <button className=" bg-white px-8 py-2 font-semibold rounded border-[1px] text-lg hover:bg-[#eff6ff]">
+            <button className=" bg-white px-8 py-2 w-full font-semibold rounded border-[1px] text-lg hover:bg-[#eff6ff]">
               View Collection
             </button>
           </Link>

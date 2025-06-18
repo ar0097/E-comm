@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../redux/Productreducer";
 import { RootState } from "../redux/store";
 import Quickview from "../Quickview/Quickview";
+import { CgShoppingCart } from "react-icons/cg";
 
 interface Product {
   image: string;
@@ -94,16 +95,17 @@ function Productcard() {
             <div className="mx-5 flex gap-3 pb-3 pt-2">
               <button
                 onClick={() => addData(ele)}
-                className="w-[50%]  duration-300  bg-orange-600 hover:bg-orange-700  font-medium  rounded-lg py-1"
+                className="w-[100%]  duration-300 flex justify-center items-center gap-2  text-white bg-orange-600 hover:bg-orange-700  font-medium  rounded-lg py-1"
               >
+                <CgShoppingCart className="w-5 h-5" />
                 Add to cart
               </button>
-              <button
+              {/* <button
                 className="w-[50%] bg-gray-300 ring-blue-500 hover:ring-1 duration-300 font-medium  rounded-lg"
                 onClick={() => handleIndex(id)}
               >
                 Quick View
-              </button>
+              </button> */}
             </div>
             {index === id && <Quickview index={index} setIndex={setIndex} />}
           </div>
