@@ -38,7 +38,7 @@ function Productcard() {
     setIndex(idx);
   };
   return (
-    <div className="relative">
+    <div className="relative" id="shop-now">
       <h1 className="capitalize font-bold text-[40px]  my-5 text-center">
         Our <strong className="text-blue-900">Products</strong>
       </h1>

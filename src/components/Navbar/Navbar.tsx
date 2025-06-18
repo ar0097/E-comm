@@ -96,9 +96,9 @@ function Navbar() {
               <Link href="/todays-deal">
                 <li className="hover:text-blue-600">Today's Deals</li>
               </Link>
-              <Link href="accessories" className="md:block hidden">
+              {/* <Link href="accessories" className="md:block hidden">
                 <li className="hover:text-blue-600">Accessories</li>
-              </Link>
+              </Link> */}
               <Link href="/contact" className="md:block hidden">
                 <li className="hover:text-blue-600">Contact</li>
               </Link>
@@ -220,9 +220,9 @@ function Navbar() {
             <Link href="/todays-deal">
               <li className="border-b-[1px] p-2">Today's Deals</li>
             </Link>
-            <Link href="accessories" className="">
+            {/* <Link href="accessories" className="">
               <li className="border-b-[1px] p-2">Accessories</li>
-            </Link>
+            </Link> */}
             <Link href="/contact" className="">
               <li className="border-b-[1px] p-2">Contact</li>
             </Link>

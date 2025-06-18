@@ -19,7 +19,7 @@ interface Product {
   type: string;
 }
 
-function Productslider({ data, title }) {
+function Productslider({ data, title }: any) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
   const dispatch = useDispatch();
@@ -65,7 +65,7 @@ function Productslider({ data, title }) {
             className="flex gap-4 overflow-x-auto scrollbar-hide"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            {data.map((product, id) => (
+            {data.map((product: any, id: any) => (
               <div
                 key={id}
                 className="min-w-[250px] bg-white border rounded-lg shadow-md hover:shadow-lg transition-all duration-300 group"

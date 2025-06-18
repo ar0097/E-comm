@@ -13,3 +13,7 @@
     scrollbar-width: thin; /* Firefox */
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
