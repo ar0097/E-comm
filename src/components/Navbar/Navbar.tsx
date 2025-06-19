@@ -212,22 +212,26 @@ function Navbar() {
         </div>
       </div>
       {isMobileMenuOpen && (
-        <div className="border-b-[1px] absolute z-50 bg-white w-full px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-700 hover:text-blue-600">
+        <div className="border-b-[1px] absolute z-50 bg-white w-full px-3 rounded-md text-sm font-medium transition-colors text-gray-700">
           <ul className="text-[16px]">
             <Link href="/">
-              <li className="border-b-[1px] p-2">Home</li>
+              <li className="border-b-[1px] p-2 hover:text-blue-600">Home</li>
             </Link>
             <Link href="/todays-deal">
-              <li className="border-b-[1px] p-2">Today's Deals</li>
+              <li className="border-b-[1px] p-2 hover:text-blue-600">
+                Today's Deals
+              </li>
             </Link>
             {/* <Link href="accessories" className="">
               <li className="border-b-[1px] p-2">Accessories</li>
             </Link> */}
             <Link href="/contact" className="">
-              <li className="border-b-[1px] p-2">Contact</li>
+              <li className="border-b-[1px] p-2 hover:text-blue-600">
+                Contact
+              </li>
             </Link>
             <Link href="/order-details">
-              <li className="border-b-[1px] p-2">Orders</li>
+              <li className="border-b-[1px] p-2 hover:text-blue-600">Orders</li>
             </Link>
           </ul>
         </div>
