@@ -23,7 +23,7 @@ function Contact() {
         </div>
       </header>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-10 mx-36">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-10 mx-5 md:mx-36">
         <div className="space-y-6">
           <div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
