@@ -1,11 +1,54 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { FiMail } from "react-icons/fi";
 import { GrFormPreviousLink } from "react-icons/gr";
 import { IoCallOutline, IoLocationOutline } from "react-icons/io5";
 import { TbSend } from "react-icons/tb";
+import emailjs from "emailjs-com";
 
 function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    sub: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+
+    emailjs
+      .send(
+        "service_v1309qq", // Your Service ID
+        "template_e097b8a", // Your Template ID
+        formData,
+        "1cz2h0-lVL2A1Xvv2" // Your Public Key
+      )
+      .then(
+        (result) => {
+          console.log("SUCCESS!", result.text);
+          alert("Email sent successfully!");
+        },
+        (error) => {
+          console.error("FAILED...", error);
+          alert("Failed to send email. Try again.");
+        }
+      );
+
+    setFormData({
+      name: "",
+      email: "",
+      sub: "",
+      message: "",
+    });
+  };
   return (
     <div className="bg-gray-50 h-screen">
       <header className="bg-white shadow-sm border-b">
@@ -98,7 +141,7 @@ function Contact() {
               </p>
             </div>
             <div className="p-6 pt-0">
-              <form className="space-y-6">
+              <div className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label
@@ -113,7 +156,8 @@ function Contact() {
                       id="name"
                       name="name"
                       placeholder="Enter your full name"
-                      value=""
+                      value={formData.name}
+                      onChange={handleChange}
                     />
                   </div>
                   <div className="space-y-2">
@@ -129,24 +173,26 @@ function Contact() {
                       id="email"
                       name="email"
                       placeholder="Enter your email"
-                      value=""
+                      value={formData.email}
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <label
                     className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    htmlFor="subject"
+                    htmlFor="sub"
                   >
                     Subject
                   </label>
                   <input
                     type="text"
                     className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
-                    id="subject"
-                    name="subject"
+                    id="sub"
+                    name="sub"
                     placeholder="What is this regarding?"
-                    value=""
+                    value={formData.sub}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="space-y-2">
@@ -162,16 +208,18 @@ function Contact() {
                     name="message"
                     rows={6}
                     placeholder="Tell us more about your inquiry..."
+                    value={formData.message}
+                    onChange={handleChange}
                   ></textarea>
                 </div>
                 <button
                   className="inline-flex items-center justify-center bg-black/90 text-white gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full"
-                  type="submit"
+                  onClick={onSubmit}
                 >
                   <TbSend className="w-6 h-6" color="" />
                   Send Message
                 </button>
-              </form>
+              </div>
             </div>
           </div>
         </div>
