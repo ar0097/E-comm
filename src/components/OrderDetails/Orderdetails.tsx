@@ -46,10 +46,30 @@ function Orderdetails() {
               </p>
             </div>
             <div className="text-[15px] font-semibold text-gray-500">
-              <p>Order Number: #HD8845</p>
               <p>
-                Order Placement: {new Date().getDate() + 8}th{" "}
-                {months[new Date().getMonth()]}, {new Date().getFullYear()}
+                Order Number:{" "}
+                {order.length > 1 ? (
+                  "#HD8845"
+                ) : (
+                  <span className=" text-gray-500 w-full h-1">---------</span>
+                )}
+              </p>
+              <p>
+                Order Placement:{" "}
+                {order.length > 1 ? (
+                  `${
+                    new Date().getDate() > 22
+                      ? new Date().getDate() - 22
+                      : new Date().getDate() + 8
+                  }th ${
+                    new Date().getDate() > 22
+                      ? months[new Date().getMonth() + 1]
+                      : months[new Date().getMonth()]
+                  },
+                ${new Date().getFullYear()}`
+                ) : (
+                  <span className=" text-gray-500 w-full h-1">---------</span>
+                )}
               </p>
             </div>
           </div>
@@ -94,9 +114,16 @@ function Orderdetails() {
                     <td className="text-center">₹{ele.price}</td>
                     {/* <td className="text-right px-10">23th Dec, 2025</td> */}
                     <td className="text-right px-10">
-                      {new Date().getDate() + 8}th{" "}
-                      {months[new Date().getMonth()]},{" "}
-                      {new Date().getFullYear()}
+                      {`${
+                        new Date().getDate() > 22
+                          ? new Date().getDate() - 22
+                          : new Date().getDate() + 8
+                      }th ${
+                        new Date().getDate() > 22
+                          ? months[new Date().getMonth() + 1]
+                          : months[new Date().getMonth()]
+                      },
+                ${new Date().getFullYear()}`}
                     </td>
                   </tr>
                 ))}
@@ -138,7 +165,7 @@ function Orderdetails() {
               </Link>
             </div>
             <p>
-              Total: ₹<span>{newData + 40}</span>
+              Total: ₹<span>{order.length > 1 ? newData + 40 : 0}</span>
             </p>
           </div>
         </div>
@@ -154,10 +181,30 @@ function Orderdetails() {
             </p>
           </div>
           <div className="text-[12px] font-semibold text-gray-500">
-            <p>Order Number: #HD8845</p>
             <p>
-              Order Placement: {new Date().getDate() + 8}th{" "}
-              {months[new Date().getMonth()]}, {new Date().getFullYear()}
+              Order Number:{" "}
+              {order.length > 1 ? (
+                "#HD8845"
+              ) : (
+                <span className=" text-gray-500 w-full h-1">---------</span>
+              )}
+            </p>
+            <p>
+              Order Placement:{" "}
+              {order.length > 1 ? (
+                `${
+                  new Date().getDate() > 22
+                    ? new Date().getDate() - 22
+                    : new Date().getDate() + 8
+                }th ${
+                  new Date().getDate() > 22
+                    ? months[new Date().getMonth() + 1]
+                    : months[new Date().getMonth()]
+                },
+                ${new Date().getFullYear()}`
+              ) : (
+                <span className=" text-gray-500 w-full h-1">---------</span>
+              )}
             </p>
           </div>
         </div>
@@ -186,8 +233,17 @@ function Orderdetails() {
                   <p className="">Quantity: {ele.quantity}</p>
                 </div>
                 <p className="text-[10px]">
-                  Delivery Expected: {new Date().getDate() + 8}th{" "}
-                  {months[new Date().getMonth()]}, {new Date().getFullYear()}{" "}
+                  Delivery Expected:{" "}
+                  {`${
+                    new Date().getDate() > 22
+                      ? new Date().getDate() - 22
+                      : new Date().getDate() + 8
+                  }th ${
+                    new Date().getDate() > 22
+                      ? months[new Date().getMonth() + 1]
+                      : months[new Date().getMonth()]
+                  },
+                ${new Date().getFullYear()}`}
                 </p>
               </div>
             </div>
