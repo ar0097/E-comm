@@ -58,10 +58,10 @@ function Orderdetails() {
                 Order Placement:{" "}
                 {order.length > 1 ? (
                   `${
-                    new Date().getDate() > 22 && new Date().getDate() - 22
-                  }th ${
-                    new Date().getDate() < 22 && new Date().getDate() + 8
-                  }th ${
+                    new Date().getDate() > 22 || new Date().getDate() < 22
+                      ? new Date().getDate() - 22
+                      : new Date().getDate() + 8
+                  }th  ${
                     new Date().getDate() > 22
                       ? months[new Date().getMonth() + 1]
                       : months[new Date().getMonth()]
@@ -115,10 +115,10 @@ function Orderdetails() {
                     {/* <td className="text-right px-10">23th Dec, 2025</td> */}
                     <td className="text-right px-10">
                       {`${
-                        new Date().getDate() > 22 && new Date().getDate() - 22
-                      }th ${
-                        new Date().getDate() < 22 && new Date().getDate() + 8
-                      }th ${
+                        new Date().getDate() > 22 || new Date().getDate() < 22
+                          ? new Date().getDate() - 22
+                          : new Date().getDate() + 8
+                      }th  ${
                         new Date().getDate() > 22
                           ? months[new Date().getMonth() + 1]
                           : months[new Date().getMonth()]
@@ -192,9 +192,11 @@ function Orderdetails() {
             <p>
               Order Placement:{" "}
               {order.length > 1 ? (
-                `$${new Date().getDate() > 22 && new Date().getDate() - 22}th ${
-                  new Date().getDate() < 22 && new Date().getDate() + 8
-                }th ${
+                `${
+                  new Date().getDate() > 22 || new Date().getDate() < 22
+                    ? new Date().getDate() - 22
+                    : new Date().getDate() + 8
+                }th  ${
                   new Date().getDate() > 22
                     ? months[new Date().getMonth() + 1]
                     : months[new Date().getMonth()]
@@ -233,10 +235,10 @@ function Orderdetails() {
                 <p className="text-[10px]">
                   Delivery Expected:{" "}
                   {`${
-                    new Date().getDate() > 22 && new Date().getDate() - 22
-                  }th ${
-                    new Date().getDate() < 22 && new Date().getDate() + 8
-                  }th ${
+                    new Date().getDate() > 22 || new Date().getDate() < 22
+                      ? new Date().getDate() - 22
+                      : new Date().getDate() + 8
+                  }th  ${
                     new Date().getDate() > 22
                       ? months[new Date().getMonth() + 1]
                       : months[new Date().getMonth()]
