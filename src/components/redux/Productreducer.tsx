@@ -63,7 +63,6 @@ const cartReducer = (state = initialState, action: any): Product[] => {
           index === self.findIndex((p) => p.image === prod.image)
       );
 
-      console.log("uni", unique);
       return unique;
     // return Array.from(new Set([...state, action.payload]));
     case REMOVE_FROM_CART:
@@ -83,14 +82,11 @@ const cartReducer = (state = initialState, action: any): Product[] => {
           : decData[action.payload].quantity - 1;
       return decData;
     case INCREMENT_SUBTOTAL:
-      // console.log("action", state[action.payload]);
       let sum =
         state[action.payload]["price"] * state[action.payload]["quantity"];
 
-      // console.log("jbccjk", sum);
       const newData = [...state];
       newData[action.payload].total = sum;
-      console.log("newData", newData);
       return newData;
 
     case DECREMENT_SUBTOTAL:
@@ -99,10 +95,8 @@ const cartReducer = (state = initialState, action: any): Product[] => {
           ? state[action.payload].price
           : state[action.payload]["total"] - state[action.payload]["price"];
 
-      // console.log("jbccjk", sum);
       const updatedData = [...state];
       updatedData[action.payload].total = newSum;
-      // console.log("newData", newData);
       return updatedData;
 
     default:

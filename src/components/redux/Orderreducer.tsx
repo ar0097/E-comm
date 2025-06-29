@@ -31,7 +31,6 @@ export const deleteOrder = (product: Product) => ({
 
 const initialState: Product[] = [];
 
-// console.log("initial", initialState);
 
 const orderReducer = (state = initialState, action: any) => {
   switch (action.type) {

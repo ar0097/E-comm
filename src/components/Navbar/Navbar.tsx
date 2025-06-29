@@ -21,7 +21,6 @@ function Navbar() {
   const cart = useSelector((state: RootState) => state.cart);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  console.log("user", user?.photoURL);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {

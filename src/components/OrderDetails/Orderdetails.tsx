@@ -9,7 +9,6 @@ import { RxCross2 } from "react-icons/rx";
 function Orderdetails() {
   const order = useSelector((state: RootState) => state.order);
   const dispatch = useDispatch();
-  console.log("order", order);
   const newData = order.reduce((acc, curr) => {
     return acc + curr.total;
   }, 0);
