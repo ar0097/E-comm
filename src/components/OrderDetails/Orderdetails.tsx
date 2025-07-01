@@ -47,7 +47,7 @@ function Orderdetails() {
             <div className="text-[15px] font-semibold text-gray-500">
               <p>
                 Order Number:{" "}
-                {order.length > 1 ? (
+                {order.length > 0 ? (
                   "#HD8845"
                 ) : (
                   <span className=" text-gray-500 w-full h-1">---------</span>
@@ -55,16 +55,22 @@ function Orderdetails() {
               </p>
               <p>
                 Order Placement:{" "}
-                {order.length > 1 ? (
-                  `${
-                    new Date().getDate() > 22 || new Date().getDate() < 22
-                      ? new Date().getDate() - 22
-                      : new Date().getDate() + 8
-                  }th  ${
+                {order.length > 0 ? (
+                  `
+                  ${
                     new Date().getDate() > 22
-                      ? months[new Date().getMonth() + 1]
-                      : months[new Date().getMonth()]
-                  },
+                      ? new Date().getDate() - 22 + "th"
+                      : ""
+                  } ${
+                    new Date().getDate() < 22
+                      ? new Date().getDate() + 7 + "th"
+                      : ""
+                  }
+                    ${
+                      new Date().getDate() > 22
+                        ? months[new Date().getMonth() + 1]
+                        : months[new Date().getMonth()]
+                    },
                 ${new Date().getFullYear()}`
                 ) : (
                   <span className=" text-gray-500 w-full h-1">---------</span>
@@ -114,10 +120,14 @@ function Orderdetails() {
                     {/* <td className="text-right px-10">23th Dec, 2025</td> */}
                     <td className="text-right px-10">
                       {`${
-                        new Date().getDate() > 22 || new Date().getDate() < 22
-                          ? new Date().getDate() - 22
-                          : new Date().getDate() + 8
-                      }th  ${
+                        new Date().getDate() > 22
+                          ? new Date().getDate() - 22 + "th"
+                          : ""
+                      } ${
+                        new Date().getDate() < 22
+                          ? new Date().getDate() + 7 + "th"
+                          : ""
+                      }  ${
                         new Date().getDate() > 22
                           ? months[new Date().getMonth() + 1]
                           : months[new Date().getMonth()]
@@ -164,7 +174,7 @@ function Orderdetails() {
               </Link>
             </div>
             <p>
-              Total: ₹<span>{order.length > 1 ? newData + 40 : 0}</span>
+              Total: ₹<span>{order.length > 0 ? newData + 40 : 0}</span>
             </p>
           </div>
         </div>
@@ -182,7 +192,7 @@ function Orderdetails() {
           <div className="text-[12px] font-semibold text-gray-500">
             <p>
               Order Number:{" "}
-              {order.length > 1 ? (
+              {order.length > 0 ? (
                 "#HD8845"
               ) : (
                 <span className=" text-gray-500 w-full h-1">---------</span>
@@ -190,12 +200,16 @@ function Orderdetails() {
             </p>
             <p>
               Order Placement:{" "}
-              {order.length > 1 ? (
+              {order.length > 0 ? (
                 `${
-                  new Date().getDate() > 22 || new Date().getDate() < 22
-                    ? new Date().getDate() - 22
-                    : new Date().getDate() + 8
-                }th  ${
+                  new Date().getDate() > 22
+                    ? new Date().getDate() - 22 + "th"
+                    : ""
+                } ${
+                  new Date().getDate() < 22
+                    ? new Date().getDate() + 7 + "th"
+                    : ""
+                }  ${
                   new Date().getDate() > 22
                     ? months[new Date().getMonth() + 1]
                     : months[new Date().getMonth()]
@@ -234,10 +248,14 @@ function Orderdetails() {
                 <p className="text-[10px]">
                   Delivery Expected:{" "}
                   {`${
-                    new Date().getDate() > 22 || new Date().getDate() < 22
-                      ? new Date().getDate() - 22
-                      : new Date().getDate() + 8
-                  }th  ${
+                    new Date().getDate() > 22
+                      ? new Date().getDate() - 22 + "th"
+                      : ""
+                  } ${
+                    new Date().getDate() < 22
+                      ? new Date().getDate() + 7 + "th"
+                      : ""
+                  }  ${
                     new Date().getDate() > 22
                       ? months[new Date().getMonth() + 1]
                       : months[new Date().getMonth()]

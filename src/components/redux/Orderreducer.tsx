@@ -14,7 +14,7 @@ interface Product {
   type: string;
 }
 
-export const addToOrderDetails = (product: Product) => ({
+export const addToOrderDetails = (product: Product[]) => ({
   type: ORDER_DETAILS,
   payload: product,
 });
@@ -31,16 +31,15 @@ export const deleteOrder = (product: Product) => ({
 
 const initialState: Product[] = [];
 
-
 const orderReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case ORDER_DETAILS:
-      const data = [...state, action.payload];
-      const unique = data.filter(
-        (prod, index, self) =>
-          index === self.findIndex((p) => p.image === prod.image)
-      );
-      return unique;
+      // const data = [...state, action.payload];
+      // const unique = data.filter(
+      //   (prod, index, self) =>
+      //     index === self.findIndex((p) => p.image === prod.image)
+      // );
+      return [...action.payload];
 
     case DELETE_ORDER:
       return [];

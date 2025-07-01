@@ -52,10 +52,13 @@ const Checkout = () => {
   };
 
   const hanldeDataorder = () => {
-    cart.forEach((ele, id) => {
-      dispatch(addToOrderDetails(ele));
-      // dispatch(incrementOrders(id));
-    });
+    // cart.forEach((ele, id) => {
+    //   dispatch(addToOrderDetails(ele));
+    //   // dispatch(incrementOrders(id));
+    // });
+
+    const cloned = cart.map((i) => ({ ...i }));
+    dispatch(addToOrderDetails(cloned));
   };
 
   // Handle form submission
